@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
   onSelectTab,
 }) => {
   return (
-    <header className="sticky top-0 z-40 bg-[#0B0F19]/90 backdrop-blur-md border-b border-slate-800/80 px-4 md:px-8 py-3.5 transition-all">
+    <header className="sticky top-0 z-40 bg-[#0B0F19]/95 backdrop-blur-md border-b border-slate-800/80 px-4 md:px-8 pb-3 safe-top transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 md:gap-8">
         {/* Zone 1: Brand Wordmark */}
         <button

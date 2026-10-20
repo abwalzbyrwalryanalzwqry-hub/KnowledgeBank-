@@ -90,6 +90,10 @@ export interface PlayerStats {
   rewardLedger?: Record<string, string>;
   /** إصدار بنية التخزين. */
   schemaVersion?: number;
+  /** رقم مراجعة يزيد مع كل حفظ (لاختيار النسخة الأحدث). */
+  revision?: number;
+  /** آخر مرحلة بدأها اللاعب في عوالم الأفق (لزر «متابعة اللعب»). */
+  lastPlayed?: { stageId: string; at: string };
 }
 
 export interface GameSettings {
@@ -99,6 +103,10 @@ export interface GameSettings {
   fontSize: 'normal' | 'large' | 'xlarge';
   highContrast: boolean;
   autoAdvanceDelayMs: number; // e.g. 1200ms
+  /** اهتزاز عند الإجابة (Android). */
+  vibrationEnabled: boolean;
+  /** تقليل الحركة والمؤثرات. */
+  reducedMotion: boolean;
 }
 
 export interface Badge {

@@ -19,7 +19,7 @@ export function MobileNav({
   ];
   return (
     <nav
-      className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-slate-800 bg-[#0B0F19]/95 backdrop-blur pb-[env(safe-area-inset-bottom)]"
+      className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-slate-800 bg-[#0B0F19]/95 backdrop-blur safe-bottom-tight"
       aria-label="التنقل الرئيسي"
     >
       <ul className="grid grid-cols-5">

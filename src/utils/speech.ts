@@ -26,8 +26,16 @@ class SpeechEngine {
     this.arabicVoice = voices.find((v) => v.lang.startsWith('ar')) || null;
   }
 
+  /** متاح فقط إن وُجد محرك نطق (WebView في Android لا يوفّره غالبًا). */
+  public get supported(): boolean {
+    return this.isAvailable;
+  }
+
   public speak(text: string, onEnd?: () => void) {
-    if (!this.synth || !this.isAvailable) return;
+    if (!this.synth || !this.isAvailable) {
+      onEnd?.();
+      return;
+    }
 
     this.stop();
 

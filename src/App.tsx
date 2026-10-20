@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { HeroBanner } from './components/HeroBanner';
 import { ModeSelector } from './components/ModeSelector';
@@ -18,12 +18,19 @@ import { ZaytounaMap } from './components/ZaytounaMap';
 import { LevelPlayArena } from './components/LevelPlayArena';
 import {
   loadPlayerStats,
+  replacePlayerStats,
   commitStats,
   onStatsChangedElsewhere,
   loadGameSettings,
   saveGameSettings,
 } from './utils/storage';
 import { HorizonHub, type HorizonNav } from './features/horizon/HorizonHub';
+import { HelpScreen, AboutScreen } from './components/InfoScreens';
+import { ContinueCard } from './components/ContinueCard';
+import { isNative, setBackHandler, setExitHint } from './platform/native';
+import { setHapticsEnabled } from './platform/haptics';
+import type { BackupPreview } from './platform/backup';
+import { manifest } from './content/loader';
 import { StagePlayer } from './features/horizon/StagePlayer';
 import { MobileNav } from './components/MobileNav';
 import { calculateRank, calculateStageStars } from './game/rules';
@@ -106,6 +113,37 @@ export default function App() {
 
   const [horizonNav, setHorizonNav] = useState<HorizonNav>({});
   const [horizonStageId, setHorizonStageId] = useState<string | null>(null);
+
+  const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [exitHint, setExitHintVisible] = useState(false);
+
+  // تطبيق إعدادات العرض على مستوى الصفحة كلها
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.fontSize = settings.fontSize === 'xlarge' ? '20px' : settings.fontSize === 'large' ? '18px' : '';
+    root.classList.toggle('reduce-motion', settings.reducedMotion);
+    root.classList.toggle('perf-lite', isNative());
+    setHapticsEnabled(settings.vibrationEnabled);
+  }, [settings.fontSize, settings.reducedMotion, settings.vibrationEnabled]);
+
+  const openHorizonStage = (stageId: string) => {
+    const entry = manifest.stageIndex.find((s) => s.id === stageId);
+    sound.playClick();
+    setCurrentMode(null);
+    setActiveZaytounaLevel(null);
+    if (entry) setHorizonNav({ worldId: entry.worldId, groupId: entry.groupId });
+    setActiveTab('horizon');
+    setHorizonStageId(stageId);
+  };
+
+  const handleRestoreBackup = (preview: BackupPreview) => {
+    replacePlayerStats(preview.stats);
+    setStats(loadPlayerStats());
+    saveGameSettings(preview.settings);
+    setSettings(preview.settings);
+    sound.setMuted(!preview.settings.soundEnabled);
+  };
 
   const handleUpdateSettings = (newSettings: Partial<GameSettings>) => {
     setSettings((prev) => {
@@ -447,6 +485,54 @@ export default function App() {
     setGameOverData((prev) => ({ ...prev, isOpen: false }));
   };
 
+  // زر الرجوع في Android: يغلق النافذة المفتوحة أو يعود خطوة واحدة في التنقل
+  const backRef = useRef<() => boolean>(() => false);
+  backRef.current = () => {
+    if (isAboutOpen) return setIsAboutOpen(false), true;
+    if (isHelpOpen) return setIsHelpOpen(false), true;
+    if (isSettingsOpen) return setIsSettingsOpen(false), true;
+    if (isProfileOpen) return setIsProfileOpen(false), true;
+    if (isDailyOpen) return setIsDailyOpen(false), true;
+    if (gameOverData.isOpen) {
+      setGameOverData((prev) => ({ ...prev, isOpen: false }));
+      if (activeZaytounaLevel) {
+        setActiveZaytounaLevel(null);
+        setActiveTab('stages');
+      } else returnHome();
+      return true;
+    }
+    if (activeZaytounaLevel) return setActiveZaytounaLevel(null), true;
+    if (currentMode === 'JOURNEY') {
+      setCurrentMode(null);
+      setActiveStage(null);
+      setActiveTab('journey');
+      return true;
+    }
+    if (currentMode) return returnHome(), true;
+    if (activeTab === 'horizon') {
+      if (horizonStageId) return setHorizonStageId(null), true;
+      if (horizonNav.groupId) return setHorizonNav({ worldId: horizonNav.worldId }), true;
+      if (horizonNav.worldId) return setHorizonNav({}), true;
+    }
+    if (activeTab !== 'home') return setActiveTab('home'), true;
+    return false;
+  };
+  useEffect(() => {
+    setBackHandler(() => backRef.current());
+    let t: ReturnType<typeof setTimeout> | undefined;
+    setExitHint(() => {
+      setExitHintVisible(true);
+      clearTimeout(t);
+      t = setTimeout(() => setExitHintVisible(false), 2000);
+    });
+    return () => clearTimeout(t);
+  }, []);
+
+  // العودة إلى أعلى الصفحة عند الانتقال بين الشاشات
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [activeTab, horizonStageId, horizonNav.worldId, horizonNav.groupId, currentMode, activeZaytounaLevel?.id]);
+
   return (
     <div
       className={`min-h-screen bg-[#0B0F19] text-slate-100 flex flex-col font-sans transition-all ${
@@ -606,7 +692,17 @@ export default function App() {
 
         {/* View 7: Home Page Hub */}
         {activeTab === 'home' && !currentMode && !activeZaytounaLevel && (
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-8">
+            <ContinueCard
+              stats={stats}
+              onContinue={openHorizonStage}
+              onBrowse={() => {
+                sound.playClick();
+                setHorizonNav({});
+                setHorizonStageId(null);
+                setActiveTab('horizon');
+              }}
+            />
             <HeroBanner
               onStartJourney={() => setActiveTab('horizon')}
               onStartTower={startTowerMode}
@@ -637,20 +733,25 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-slate-800/80 py-6 px-4 pb-24 md:pb-6 text-center text-xs text-slate-500 mt-auto">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span>أفق المعرفة الكبرى · الصرح الثقافي فائق التطور</span>
-          <div className="flex items-center gap-4">
+          <span>أفق المعرفة · لعبة ألغاز وثقافة عامة تعمل دون إنترنت</span>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
             <button
               onClick={() => setIsSettingsOpen(true)}
-              className="hover:text-slate-300 transition-colors cursor-pointer"
+              className="hover:text-slate-300 transition-colors cursor-pointer py-2"
             >
-              إمكانية الوصول والصوت
+              الإعدادات
             </button>
-            <span aria-hidden="true">·</span>
+            <button onClick={() => setIsHelpOpen(true)} className="hover:text-slate-300 transition-colors cursor-pointer py-2">
+              طريقة اللعب
+            </button>
+            <button onClick={() => setIsAboutOpen(true)} className="hover:text-slate-300 transition-colors cursor-pointer py-2">
+              حول اللعبة
+            </button>
             <button
               onClick={() => setIsProfileOpen(true)}
-              className="hover:text-slate-300 transition-colors cursor-pointer"
+              className="hover:text-slate-300 transition-colors cursor-pointer py-2"
             >
-              سجل الإنجازات والأوسمة
+              الإنجازات
             </button>
           </div>
         </div>
@@ -672,10 +773,21 @@ export default function App() {
 
       <SettingsModal
         settings={settings}
+        stats={stats}
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
         onUpdateSettings={handleUpdateSettings}
+        onRestoreBackup={handleRestoreBackup}
+        onOpenHelp={() => setIsHelpOpen(true)}
+        onOpenAbout={() => setIsAboutOpen(true)}
       />
+      {isHelpOpen && <HelpScreen onClose={() => setIsHelpOpen(false)} />}
+      {isAboutOpen && <AboutScreen onClose={() => setIsAboutOpen(false)} />}
+      {exitHint && (
+        <div className="exit-toast rounded-full bg-slate-800 text-white text-sm px-5 py-3 shadow-xl" role="status">
+          اضغط رجوع مرة أخرى للخروج
+        </div>
+      )}
 
       <GameOverModal
         title={gameOverData.title}

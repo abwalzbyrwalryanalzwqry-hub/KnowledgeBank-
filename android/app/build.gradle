@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+// توقيع نسخة الإصدار: يُقرأ من android/keystore.properties (غير مرفوع إلى المستودع)
+// أو من متغيرات البيئة HOK_KEYSTORE_FILE / HOK_KEYSTORE_PASSWORD / HOK_KEY_ALIAS / HOK_KEY_PASSWORD.
+def keystoreProps = new Properties()
+def keystorePropsFile = rootProject.file('keystore.properties')
+if (keystorePropsFile.exists()) {
+    keystorePropsFile.withInputStream { keystoreProps.load(it) }
+}
+def signingValue = { String key, String env -> keystoreProps.getProperty(key) ?: System.getenv(env) }
+def hasReleaseSigning = signingValue('storeFile', 'HOK_KEYSTORE_FILE') != null
+
+android {
+    namespace = "com.horizonofknowledge.game"
+    compileSdk = rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.horizonofknowledge.game"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        // عند كل تحديث: زِد versionCode (عدد صحيح متزايد) وحدّث versionName.
+        // التحديث بالمعرّف نفسه ومفتاح التوقيع نفسه يحافظ على تقدم اللاعب.
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    signingConfigs {
+        if (hasReleaseSigning) {
+            release {
+                storeFile file(signingValue('storeFile', 'HOK_KEYSTORE_FILE'))
+                storePassword signingValue('storePassword', 'HOK_KEYSTORE_PASSWORD')
+                keyAlias signingValue('keyAlias', 'HOK_KEY_ALIAS')
+                keyPassword signingValue('keyPassword', 'HOK_KEY_PASSWORD')
+            }
+        }
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+        release {
+            if (hasReleaseSigning) {
+                signingConfig signingConfigs.release
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}

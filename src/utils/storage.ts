@@ -1,6 +1,7 @@
 import { PlayerStats, GameSettings, Badge } from '../types/game';
 import { calculateRank } from '../game/rules';
 import { sanitizeProgress } from '../content/progress';
+import { kvGet, kvSet, kvReloadFromWeb } from '../platform/kvStore';
 
 /**
  * التخزين المحلي للاعب.
@@ -9,10 +10,21 @@ import { sanitizeProgress } from '../content/progress';
  * - إن كانت البيانات غير قابلة للقراءة إطلاقًا، تُحفظ نسخة احتياطية منها قبل البدء من جديد.
  * - commitStats يقرأ أحدث نسخة من التخزين قبل التعديل، فلا تكتب علامة تبويب قديمة فوق تقدم أحدث.
  */
-const STATS_KEY = 'horizon_knowledge_stats_v1';
-const SETTINGS_KEY = 'horizon_knowledge_settings_v1';
-const BACKUP_KEY = 'horizon_knowledge_stats_corrupt_backup';
-export const STATS_SCHEMA_VERSION = 2;
+export const STATS_KEY = 'horizon_knowledge_stats_v1';
+export const SETTINGS_KEY = 'horizon_knowledge_settings_v1';
+export const BACKUP_KEY = 'horizon_knowledge_stats_corrupt_backup';
+/** آخر نسخة سليمة قبل الحفظ الحالي (حماية من الاستبدال غير المقصود). */
+export const PREV_KEY = 'horizon_knowledge_stats_prev';
+/** نسخة تُحفظ تلقائيًا قبل استيراد ملف نسخة احتياطية. */
+export const PRE_IMPORT_KEY = 'horizon_knowledge_stats_pre_import';
+export const STORAGE_KEYS = [STATS_KEY, SETTINGS_KEY, BACKUP_KEY, PREV_KEY, PRE_IMPORT_KEY];
+/**
+ * تاريخ إصدارات بنية البيانات:
+ * 1: البنية الأصلية (بلا حقل schemaVersion).
+ * 2: إضافة horizon (تقدم العوالم) وrewardLedger.
+ * 3: إضافة revision (رقم مراجعة متزايد) وlastPlayed (آخر مرحلة).
+ */
+export const STATS_SCHEMA_VERSION = 3;
 
 export const INITIAL_BADGES: Badge[] = [
   { id: 'first_win', title: 'شرارة البداية', description: 'أكمل أول مرحلة بنجاح في رحلة العصور', icon: 'Sparkle', unlocked: false },
@@ -60,6 +72,8 @@ export const DEFAULT_SETTINGS: GameSettings = {
   fontSize: 'normal',
   highContrast: false,
   autoAdvanceDelayMs: 1200,
+  vibrationEnabled: true,
+  reducedMotion: typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches,
 };
 
 const isObj = (v: unknown): v is Record<string, any> => !!v && typeof v === 'object' && !Array.isArray(v);
@@ -81,8 +95,16 @@ export function sanitizeStats(parsed: unknown): PlayerStats {
   if (isObj(parsed.rewardLedger)) for (const [k, v] of Object.entries(parsed.rewardLedger)) if (typeof v === 'string') ledger[k] = v;
   const xp = nonNeg(parsed.xp, 0);
   const rank = calculateRank(xp);
+  const lastPlayed =
+    isObj(parsed.lastPlayed) && typeof parsed.lastPlayed.stageId === 'string'
+      ? { stageId: parsed.lastPlayed.stageId, at: typeof parsed.lastPlayed.at === 'string' ? parsed.lastPlayed.at : '' }
+      : undefined;
   return {
+    // الحقول غير المعروفة (من إصدار أحدث مثلًا) تُحفظ كما هي ولا تُحذف
+    ...parsed,
     ...DEFAULT_STATS,
+    revision: nonNeg(parsed.revision, 0),
+    lastPlayed,
     xp,
     level: rank.level,
     rankTitle: rank.title,
@@ -107,47 +129,49 @@ export function sanitizeStats(parsed: unknown): PlayerStats {
   };
 }
 
-function storageAvailable(): boolean {
+export function parseStoredStats(raw: string | null): { stats: PlayerStats; corrupt: boolean } {
+  if (!raw) return { stats: sanitizeStats(undefined), corrupt: false };
   try {
-    return typeof window !== 'undefined' && !!window.localStorage;
+    return { stats: sanitizeStats(JSON.parse(raw)), corrupt: false };
   } catch {
-    return false;
+    return { stats: sanitizeStats(undefined), corrupt: true };
   }
 }
 
 export function loadPlayerStats(): PlayerStats {
-  if (!storageAvailable()) return sanitizeStats(undefined);
-  let raw: string | null = null;
-  try {
-    raw = localStorage.getItem(STATS_KEY);
-  } catch {
-    return sanitizeStats(undefined);
+  const raw = kvGet(STATS_KEY);
+  const { stats, corrupt } = parseStoredStats(raw);
+  if (corrupt && raw) {
+    // بيانات تالفة: احتفظ بنسخة منها بدل محوها بصمت، وحاول استعادة آخر نسخة سليمة
+    kvSet(BACKUP_KEY, raw);
+    const prev = parseStoredStats(kvGet(PREV_KEY));
+    if (!prev.corrupt) return prev.stats;
   }
-  if (!raw) return sanitizeStats(undefined);
-  try {
-    return sanitizeStats(JSON.parse(raw));
-  } catch {
-    // بيانات تالفة: احتفظ بنسخة منها بدل محوها بصمت
-    try {
-      localStorage.setItem(BACKUP_KEY, raw);
-    } catch {}
-    return sanitizeStats(undefined);
-  }
+  return stats;
 }
 
 let lastSaveError: string | null = null;
 export const getLastSaveError = () => lastSaveError;
 
 export function savePlayerStats(stats: PlayerStats): boolean {
-  if (!storageAvailable()) return false;
   try {
-    localStorage.setItem(STATS_KEY, JSON.stringify({ ...stats, schemaVersion: STATS_SCHEMA_VERSION }));
+    const current = kvGet(STATS_KEY);
+    if (current) kvSet(PREV_KEY, current);
+    const revision = Math.max(stats.revision ?? 0, parseStoredStats(current).stats.revision ?? 0) + 1;
+    kvSet(STATS_KEY, JSON.stringify({ ...stats, revision, schemaVersion: STATS_SCHEMA_VERSION }));
     lastSaveError = null;
     return true;
   } catch (e) {
     lastSaveError = (e as Error)?.message || 'تعذر الحفظ';
     return false;
   }
+}
+
+/** استبدال كامل (للاستيراد): يحفظ النسخة الحالية أولًا في PRE_IMPORT_KEY. */
+export function replacePlayerStats(stats: PlayerStats): boolean {
+  const current = kvGet(STATS_KEY);
+  if (current) kvSet(PRE_IMPORT_KEY, current);
+  return savePlayerStats({ ...stats, revision: Math.max(stats.revision ?? 0, parseStoredStats(current).stats.revision ?? 0) });
 }
 
 /**
@@ -160,31 +184,47 @@ export function commitStats(updater: (prev: PlayerStats) => PlayerStats): Player
   const rank = calculateRank(next.xp);
   const updated = { ...next, level: rank.level, rankTitle: rank.title };
   savePlayerStats(updated);
-  return updated;
+  return loadPlayerStats();
 }
 
 export function onStatsChangedElsewhere(cb: () => void): () => void {
   if (typeof window === 'undefined') return () => {};
   const handler = (e: StorageEvent) => {
-    if (e.key === STATS_KEY) cb();
+    if (e.key === STATS_KEY) {
+      kvReloadFromWeb(STATS_KEY);
+      cb();
+    }
   };
   window.addEventListener('storage', handler);
   return () => window.removeEventListener('storage', handler);
 }
 
+export function sanitizeSettings(parsed: unknown): GameSettings {
+  if (!isObj(parsed)) return { ...DEFAULT_SETTINGS };
+  const bool = (v: unknown, d: boolean) => (typeof v === 'boolean' ? v : d);
+  return {
+    soundEnabled: bool(parsed.soundEnabled, DEFAULT_SETTINGS.soundEnabled),
+    ambientMusic: bool(parsed.ambientMusic, DEFAULT_SETTINGS.ambientMusic),
+    speechEnabled: bool(parsed.speechEnabled, DEFAULT_SETTINGS.speechEnabled),
+    fontSize: ['normal', 'large', 'xlarge'].includes(parsed.fontSize) ? parsed.fontSize : DEFAULT_SETTINGS.fontSize,
+    highContrast: bool(parsed.highContrast, DEFAULT_SETTINGS.highContrast),
+    autoAdvanceDelayMs: nonNeg(parsed.autoAdvanceDelayMs, DEFAULT_SETTINGS.autoAdvanceDelayMs),
+    vibrationEnabled: bool(parsed.vibrationEnabled, DEFAULT_SETTINGS.vibrationEnabled),
+    reducedMotion: bool(parsed.reducedMotion, DEFAULT_SETTINGS.reducedMotion),
+  };
+}
+
 export function loadGameSettings(): GameSettings {
-  if (!storageAvailable()) return DEFAULT_SETTINGS;
   try {
-    const raw = localStorage.getItem(SETTINGS_KEY);
-    return raw ? { ...DEFAULT_SETTINGS, ...JSON.parse(raw) } : DEFAULT_SETTINGS;
+    const raw = kvGet(SETTINGS_KEY);
+    return raw ? sanitizeSettings(JSON.parse(raw)) : { ...DEFAULT_SETTINGS };
   } catch {
-    return DEFAULT_SETTINGS;
+    return { ...DEFAULT_SETTINGS };
   }
 }
 
 export function saveGameSettings(settings: GameSettings): void {
-  if (!storageAvailable()) return;
   try {
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    kvSet(SETTINGS_KEY, JSON.stringify({ ...settings, schemaVersion: 2 }));
   } catch {}
 }

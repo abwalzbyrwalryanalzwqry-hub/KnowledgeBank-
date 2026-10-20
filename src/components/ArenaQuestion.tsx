@@ -241,8 +241,8 @@ export const ArenaQuestion: React.FC<ArenaQuestionProps> = ({
             </div>
           )}
 
-          {/* Voice recitation button */}
-          <button
+          {/* Voice recitation button (يظهر فقط إن توفر محرك نطق) */}
+          {speech.supported && <button
             onClick={handleReadQuestion}
             className={`p-2 rounded-lg border transition-colors cursor-pointer ${
               isSpeaking
@@ -253,7 +253,7 @@ export const ArenaQuestion: React.FC<ArenaQuestionProps> = ({
             title="المساعد الصوتي للأسئلة"
           >
             <Volume2 className="w-4 h-4" />
-          </button>
+          </button>}
 
           {/* Circular Countdown Gauge */}
           <div className="relative w-11 h-11 flex items-center justify-center">

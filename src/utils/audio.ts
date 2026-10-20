@@ -3,6 +3,8 @@
  * Zero external audio assets required; 100% reliable and zero latency.
  */
 
+import { haptic } from '../platform/haptics';
+
 class SoundEngine {
   private ctx: AudioContext | null = null;
   private ambientOsc: OscillatorNode | null = null;
@@ -20,6 +22,14 @@ class SoundEngine {
     if (this.ctx && this.ctx.state === 'suspended') {
       this.ctx.resume().catch(() => {});
     }
+  }
+
+  /** إيقاف الصوت مؤقتًا عند إرسال التطبيق إلى الخلفية. */
+  public suspend() {
+    this.ctx?.suspend().catch(() => {});
+  }
+  public resume() {
+    if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
   }
 
   public setMuted(muted: boolean) {
@@ -56,6 +66,7 @@ class SoundEngine {
 
   // Glorious correct chime
   public playCorrect() {
+    haptic.correct();
     if (this.isMuted) return;
     this.initCtx();
     if (!this.ctx) return;
@@ -84,6 +95,7 @@ class SoundEngine {
 
   // Low incorrect buzzer
   public playWrong() {
+    haptic.wrong();
     if (this.isMuted) return;
     this.initCtx();
     if (!this.ctx) return;
@@ -155,6 +167,7 @@ class SoundEngine {
 
   // Stage victory fanfare
   public playVictory() {
+    haptic.win();
     if (this.isMuted) return;
     this.initCtx();
     if (!this.ctx) return;
@@ -214,6 +227,7 @@ class SoundEngine {
 
   // Heart loss buzz
   public playHeartLoss() {
+    haptic.wrong();
     if (this.isMuted) return;
     this.initCtx();
     if (!this.ctx) return;

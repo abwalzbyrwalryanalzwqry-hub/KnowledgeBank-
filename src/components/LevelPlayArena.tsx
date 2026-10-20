@@ -292,7 +292,7 @@ export const LevelPlayArena: React.FC<LevelPlayArenaProps> = ({
         )}
 
         <div className="flex items-center gap-2">
-          <button
+          {speech.supported && <button
             onClick={handleReadQuestion}
             className={`p-1.5 rounded-lg border cursor-pointer transition-colors ${
               isSpeaking
@@ -302,7 +302,7 @@ export const LevelPlayArena: React.FC<LevelPlayArenaProps> = ({
             title="قراءة السؤال صوتياً"
           >
             <Volume2 className="w-3.5 h-3.5" />
-          </button>
+          </button>}
         </div>
       </div>
 

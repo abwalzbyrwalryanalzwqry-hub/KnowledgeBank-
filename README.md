@@ -1,6 +1,7 @@
 # أفق المعرفة | Horizon of Knowledge
 
-لعبة معرفة وألغاز عربية بالكامل (اتجاه من اليمين إلى اليسار) مبنية بـ React وTypeScript وVite وTailwind.
+لعبة معرفة وألغاز عربية بالكامل (اتجاه من اليمين إلى اليسار) مبنية بـ React وTypeScript وVite وTailwind،
+وتُبنى تطبيق Android يعمل دون إنترنت عبر Capacitor 8 (انظر «تطبيق Android» أدناه).
 
 ## التشغيل
 
@@ -54,7 +55,15 @@ scripts/
 
 ## التخزين
 
-- المفتاح نفسه السابق `horizon_knowledge_stats_v1` في localStorage، فلا يضيع التقدم القديم.
+- طبقة موحدة في `src/platform/kvStore.ts`: على Android المصدر الدائم هو Capacitor Preferences (SharedPreferences)،
+  وlocalStorage نسخة مرآة؛ في المتصفح localStorage فقط. القراءة متزامنة من ذاكرة تُملأ قبل عرض أول شاشة،
+  والكتابة إلى التخزين الأصلي بطابور متسلسل تُفرَّغ عند إرسال التطبيق إلى الخلفية.
+- كل حفظ يزيد `revision`، وعند وجود نسختين مختلفتين يُعتمد الأحدث، فلا تستبدل نسخة قديمة نسخة أحدث.
+- `horizon_knowledge_stats_prev` يحفظ النسخة السابقة لكل حفظ، فإن تلفت البيانات تُستعاد آخر نسخة سليمة.
+- إصدار البنية `schemaVersion` (حاليًا 3)، والحقول غير المعروفة من إصدار أحدث تُحفظ ولا تُحذف.
+- نسخة احتياطية اختيارية من الإعدادات: تصدير ملف JSON (قائمة المشاركة في Android) واستيراده بعد التحقق من الصيغة
+  والإصدار وبصمة السلامة، مع حفظ التقدم الحالي في `horizon_knowledge_stats_pre_import` قبل الاستبدال.
+- المفتاح نفسه السابق `horizon_knowledge_stats_v1`، فلا يضيع التقدم القديم (يُرحَّل تلقائيًا من localStorage إلى التخزين الأصلي).
 - تقدم عوالم الأفق محفوظ في الحقل `horizon` مفهرسًا بالمعرفات الثابتة، منفصلًا عن المحتوى، لذلك لا يضيع التقدم عند تحديث الأسئلة.
 - كل حفظ يقرأ أحدث نسخة قبل التعديل (تبويبات متعددة)، والبيانات التالفة تُنظف حقلًا حقلًا،
   وإن تعذرت قراءتها كليًا تُحفظ نسخة في `horizon_knowledge_stats_corrupt_backup` بدل محوها.
@@ -111,3 +120,75 @@ npm run content:ai-drafts -- --mock --count 3     # لاختبار المسار 
 الافتراضي: تجاهل التشكيل والتطويل وعلامات الترقيم والمسافات الزائدة، وتوحيد الأرقام العربية والفارسية والغربية.
 اختياري لكل سؤال (`match`): `foldAlef`، `foldTaMarbuta`، `foldYa`، `foldHamzaSeats`، `ignoreDefiniteArticle`، `ignoreSpaces`، و`numericTolerance` للأرقام.
 البدائل تُقبل فقط إذا وُثقت في `acceptedAnswers`، ولا توجد مطابقة تقريبية.
+
+## تطبيق Android
+
+التطبيق غلاف Capacitor 8 حول الواجهة نفسها. ملفات `dist/` تُنسخ داخل APK
+(`android/app/src/main/assets/public`) وتُخدَّم من الجهاز عبر `https://localhost`.
+لا يوجد `server.url`، ولا خادم Vite أو Express، ولا CDN أو خطوط خارجية. كل المحتوى والأصوات والخطوط مضمّنة.
+
+- المعرّف: `com.horizonofknowledge.game` (نسخ debug: `com.horizonofknowledge.game.debug` باسم «أفق المعرفة (تجريبي)»،
+  فتُثبَّت بجانب نسخة الإصدار ولا تتعارض معها).
+- الإضافات: App (زر الرجوع ودورة الحياة)، Preferences (التخزين)، Haptics (الاهتزاز)، SplashScreen، Filesystem وShare (تصدير النسخة الاحتياطية).
+  أشرطة النظام عبر SystemBars المدمج في Capacitor 8 (edge-to-edge مع `--safe-area-inset-*`).
+- الاتجاه: عمودي على الهواتف. Android 16 قد يسمح بالتدوير على الشاشات الكبيرة، والواجهة تتكيف معه.
+- الحد الأدنى: Android 7.0 (API 24) مع Android System WebView 111 أو أحدث (يحتاجه Tailwind 4).
+  إن كان WebView أقدم تظهر صفحة محلية (`public/load-error.html`) تطلب تحديثه من Play.
+
+### المتطلبات
+
+- Node.js 22 أو أحدث (يحتاجه Capacitor CLI 8).
+- JDK 21.
+- Android SDK: Platform 36 وBuild-Tools 36 وPlatform-Tools. أسهل طريق: Android Studio 2025.2.1 أو أحدث.
+  أو أدوات سطر الأوامر مع ضبط `ANDROID_HOME` (أو `android/local.properties` بالسطر `sdk.dir=...`).
+
+### بناء APK تجريبي
+
+```bash
+npm install
+npm run android:apk      # بناء الويب + cap sync + gradlew assembleDebug
+# الناتج:
+# android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+التثبيت على الهاتف: انقل الملف وافتحه (مع السماح بالتثبيت من مصادر غير معروفة)، أو عبر USB:
+
+```bash
+adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+### نسخة إصدار موقّعة (APK وAAB)
+
+1. أنشئ مفتاح توقيع مرة واحدة واحفظه خارج المستودع مع نسخة احتياطية آمنة:
+   ```bash
+   keytool -genkeypair -v -keystore ~/keys/horizon-release.jks -alias horizon -keyalg RSA -keysize 4096 -validity 10000
+   ```
+2. انسخ `android/keystore.properties.example` إلى `android/keystore.properties` واملأ المسار وكلمات المرور
+   (الملف ومفاتيح `*.jks` مستثناة في `.gitignore`)، أو استخدم متغيرات البيئة
+   `HOK_KEYSTORE_FILE` و`HOK_KEYSTORE_PASSWORD` و`HOK_KEY_ALIAS` و`HOK_KEY_PASSWORD`.
+3. ابنِ:
+   ```bash
+   npm run android:release
+   # android/app/build/outputs/apk/release/app-release.apk
+   # android/app/build/outputs/bundle/release/app-release.aab   (لـ Google Play)
+   ```
+   دون مفتاح يُنتج Gradle نسخة release غير موقعة لا يمكن تثبيتها.
+
+### التحديث دون فقدان التقدم
+
+- زِد `versionCode` (عدد صحيح) وحدّث `versionName` في `android/app/build.gradle` و`version` في `package.json`.
+- وقّع دائمًا بالمفتاح نفسه وبالمعرّف نفسه: Android يحدّث التطبيق فوق القديم ويبقي بياناته.
+  مفتاح مختلف يعني إلغاء التثبيت أولًا وضياع البيانات المحلية.
+- التقدم مفهرس بمعرفات ثابتة للمراحل والأسئلة: لا تغيّر معرّف مرحلة منشورة، وأضف مراحل جديدة بمعرفات جديدة.
+- عند تغيير بنية البيانات: ارفع `STATS_SCHEMA_VERSION` في `src/utils/storage.ts` وأضف الترحيل في `sanitizeStats`
+  مع اختبار في `src/platform/platform.test.ts`.
+- `android:allowBackup="true"`: النسخ الاحتياطي التلقائي في Android يحفظ التفضيلات. والتصدير اليدوي متاح من الإعدادات.
+
+### إضافة محتوى إلى إصدار التطبيق
+
+المحتوى جزء من البناء: أضف الدفعة كما في «إضافة دفعة محتوى»، ثم `npm run content:build`، ثم `npm run android:apk` (أو release).
+الاستوديو (`#/studio`) يعمل في `npm run dev` فقط، ولا يدخل في `dist/` ولا في APK.
+
+### الأيقونة وشاشة البداية
+
+المصادر في `assets/` (مولّدة من شعار الواجهة نفسه). لإعادة توليد كل المقاسات: `npm run android:assets`.

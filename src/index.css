@@ -124,3 +124,44 @@
 @media (prefers-reduced-motion: reduce) {
   .hz-pop, .hz-shake, .hz-enter { animation: none; }
 }
+
+/* ===== تطبيق الهاتف ===== */
+:root {
+  /* Capacitor (insetsHandling: css) يحقن --safe-area-inset-*، وعلى المتصفح نعود إلى env() */
+  --sat: max(env(safe-area-inset-top, 0px), var(--safe-area-inset-top, 0px));
+  --sab: max(env(safe-area-inset-bottom, 0px), var(--safe-area-inset-bottom, 0px));
+}
+.safe-top { padding-top: calc(var(--sat) + 0.5rem); }
+.safe-top-tight { padding-top: var(--sat); }
+.safe-bottom { padding-bottom: calc(var(--sab) + 1rem); }
+.safe-bottom-tight { padding-bottom: var(--sab); }
+
+html, body {
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+button, [role="button"], a { touch-action: manipulation; }
+/* منع تحديد النص بالضغط المطوّل على عناصر التحكم فقط (النصوص تبقى قابلة للتحديد) */
+button, nav, [role="switch"] { -webkit-user-select: none; user-select: none; }
+/* حقول الإدخال: 16px على الأقل لتفادي تكبير الصفحة تلقائيًا */
+input, textarea { font-size: max(16px, 1em); }
+
+/* أداء الهواتف المتوسطة: إيقاف ضبابية الخلفية المكلفة داخل التطبيق */
+.perf-lite *, .perf-lite *::before, .perf-lite *::after {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* تقليل الحركة من إعدادات اللعبة */
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* تلميح الخروج من التطبيق */
+.exit-toast {
+  position: fixed; inset-inline: 0; bottom: calc(var(--sab) + 5.5rem);
+  margin-inline: auto; width: max-content; max-width: 90vw; z-index: 80;
+}

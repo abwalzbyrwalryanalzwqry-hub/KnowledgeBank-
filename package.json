@@ -1,7 +1,7 @@
 {
-  "name": "react-example",
+  "name": "horizon-of-knowledge",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
@@ -18,9 +18,22 @@
     "content:links": "tsx scripts/content-cli.ts links",
     "content:ai-drafts": "tsx scripts/gemini-drafts.ts",
     "prebuild": "tsx scripts/content-cli.ts build",
-    "test": "tsx --test src/**/*.test.ts"
+    "test": "tsx --test src/content/*.test.ts src/game/*.test.ts src/platform/*.test.ts",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "cap open android",
+    "android:apk": "npm run android:sync && cd android && ./gradlew assembleDebug",
+    "android:release": "npm run android:sync && cd android && ./gradlew assembleRelease bundleRelease",
+    "android:assets": "npx @capacitor/assets@3.0.5 generate --android --iconBackgroundColor '#0B0F19' --splashBackgroundColor '#0B0F19'"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/filesystem": "^8.1.5",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/preferences": "^8.0.1",
+    "@capacitor/share": "^8.0.3",
+    "@capacitor/splash-screen": "^8.0.2",
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/canvas-confetti": "^1.9.0",
@@ -35,6 +48,8 @@
     "vite": "^8.3.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
@@ -42,7 +57,9 @@
     "esbuild": "^0.25.0",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.21.0",
-    "typescript": "^7.0.2",
-    "@types/express": "^4.17.21"
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }

@@ -42,6 +42,10 @@ export function StagePlayer({ stageId, stats, onCommit, onExit, onOpenStage }: P
   const [data, setData] = useState<PlayableStage | null | undefined>(undefined);
   const [phase, setPhase] = useState<'intro' | 'play' | 'done' | 'failed'>('intro');
   const [index, setIndex] = useState(0);
+  // كل سؤال جديد أو شاشة جديدة تبدأ من أعلى الصفحة (مهم على الهاتف)
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [index, phase]);
   const [solvedNow, setSolvedNow] = useState<Record<string, boolean>>({});
   const [skipped, setSkipped] = useState<string[]>([]);
   const [mistakes, setMistakes] = useState(0);
@@ -134,7 +138,11 @@ export function StagePlayer({ stageId, stats, onCommit, onExit, onOpenStage }: P
 
   const start = () => {
     sound.playClick();
-    onCommit((prev) => ({ ...prev, horizon: markStageStarted(getHorizon(prev), stage.id) }));
+    onCommit((prev) => ({
+      ...prev,
+      lastPlayed: { stageId: stage.id, at: new Date().toISOString() },
+      horizon: markStageStarted(getHorizon(prev), stage.id),
+    }));
     resetAttempt();
     setPhase('play');
   };
