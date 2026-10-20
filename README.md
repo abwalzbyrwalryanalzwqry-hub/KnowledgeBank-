@@ -192,3 +192,12 @@ adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 ### الأيقونة وشاشة البداية
 
 المصادر في `assets/` (مولّدة من شعار الواجهة نفسه). لإعادة توليد كل المقاسات: `npm run android:assets`.
+
+### حالة الاختبار على Android (أكتوبر 2026)
+
+- بُني APK تجريبي (`assembleDebug`) ونسخة release غير موقعة وAAB (`assembleRelease bundleRelease`) بنجاح، وجُرّب التوقيع بمفتاح مؤقت.
+- ثُبّت APK على محاكي Android 11 (دون تسريع KVM). أظهر سجل التشغيل تحميل الواجهة من `https://localhost` من داخل APK،
+  وتسجيل كل الإضافات. WebView في صورة المحاكي (الإصدار 83) أقدم من الحد الأدنى، فظهرت صفحة `load-error.html` كما صُمّمت.
+  لم يُختبر اللعب داخل WebView في Android بعد: يلزم هاتف حقيقي أو محاكٍ بـ WebView 111+.
+- اللعب نفسه اختُبر على ملفات `android/app/src/main/assets/public` المضمّنة في APK، بمتصفح Chromium وعرض 360 بكسل ولمس،
+  مع حجب كل الطلبات الخارجية: أُكملت المراحل الـ38 بآلياتها التسع، دون أخطاء ودون أي طلب شبكي.
