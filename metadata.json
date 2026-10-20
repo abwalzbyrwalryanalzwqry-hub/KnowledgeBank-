@@ -1,0 +1,6 @@
+{
+  "name": "أفق المعرفة | Horizon of Knowledge",
+  "description": "اللعبة الثقافية الكبرى فائقة التطور - تجمع بين التاريخ والعلوم والدين والتكنولوجيا والرياضة والصناعة بأطوار لعب مستقبلية ومستويات تصاعدية",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
