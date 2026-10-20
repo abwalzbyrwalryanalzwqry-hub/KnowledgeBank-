@@ -84,6 +84,12 @@ export interface PlayerStats {
   hearts: number;
   completedLevels: Record<string, { stars: number; score: number }>;
   claimedChests: string[];
+  /** تقدم نظام العوالم الجديد (مفهرس بالمعرفات الثابتة، منفصل عن تعريفات المحتوى). */
+  horizon?: import('../content/progress.ts').HorizonProgress;
+  /** مفاتيح المكافآت الممنوحة في الأطوار القديمة لمنع تكرارها. */
+  rewardLedger?: Record<string, string>;
+  /** إصدار بنية التخزين. */
+  schemaVersion?: number;
 }
 
 export interface GameSettings {

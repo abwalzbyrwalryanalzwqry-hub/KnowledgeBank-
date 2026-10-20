@@ -1,0 +1,1810 @@
+{
+  "packId": "w2-puzzles",
+  "version": 1,
+  "worlds": [
+    {
+      "id": "w_puzzles",
+      "title": "مدينة الألغاز",
+      "subtitle": "كلمات متقاطعة، كلمة السر، أنماط ودقة ملاحظة",
+      "order": 2,
+      "icon": "Puzzle",
+      "color": "#8B5CF6",
+      "unlockRatio": 0.3
+    }
+  ],
+  "groups": [
+    {
+      "id": "g_pz_logic",
+      "worldId": "w_puzzles",
+      "title": "قاعة المنطق والاستنتاج",
+      "order": 1,
+      "icon": "Brain",
+      "stageType": "logic"
+    },
+    {
+      "id": "g_pz_cross",
+      "worldId": "w_puzzles",
+      "title": "شبكة الحروف المتقاطعة",
+      "order": 2,
+      "icon": "Grid3x3",
+      "stageType": "crossword"
+    },
+    {
+      "id": "g_pz_search",
+      "worldId": "w_puzzles",
+      "title": "متاهة الكلمات",
+      "order": 3,
+      "icon": "Search",
+      "stageType": "wordsearch"
+    },
+    {
+      "id": "g_pz_pass",
+      "worldId": "w_puzzles",
+      "title": "خزنة كلمة السر",
+      "order": 4,
+      "icon": "KeyRound",
+      "stageType": "password"
+    },
+    {
+      "id": "g_pz_order",
+      "worldId": "w_puzzles",
+      "title": "ورشة الترتيب",
+      "order": 5,
+      "icon": "ArrowDownUp",
+      "stageType": "order"
+    },
+    {
+      "id": "g_pz_picture",
+      "worldId": "w_puzzles",
+      "title": "معرض الألغاز المصورة",
+      "order": 6,
+      "icon": "Image",
+      "stageType": "picture"
+    },
+    {
+      "id": "g_pz_pattern",
+      "worldId": "w_puzzles",
+      "title": "مرصد الأنماط",
+      "order": 7,
+      "icon": "Shapes",
+      "stageType": "pattern"
+    },
+    {
+      "id": "g_pz_observe",
+      "worldId": "w_puzzles",
+      "title": "عين الصقر",
+      "order": 8,
+      "icon": "Eye",
+      "stageType": "observation"
+    }
+  ],
+  "stages": [
+    {
+      "id": "s_pz_logic_1",
+      "title": "ألغاز الحكماء",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_logic",
+      "order": 1,
+      "type": "logic",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_log_001",
+        "c_log_002",
+        "c_log_003",
+        "c_log_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_logic_2",
+      "title": "استنتاج دقيق",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_logic",
+      "order": 2,
+      "type": "logic",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_log_005",
+        "c_log_006",
+        "c_log_007",
+        "c_log_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_cw_1",
+      "title": "تقاطع أول",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_cross",
+      "order": 1,
+      "type": "crossword",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_crs_001"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_cw_2",
+      "title": "تقاطعان",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_cross",
+      "order": 2,
+      "type": "crossword",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_crs_002",
+        "c_crs_003"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_ws_1",
+      "title": "حيوانات مختبئة",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_search",
+      "order": 1,
+      "type": "wordsearch",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_wsr_001"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_ws_2",
+      "title": "فواكه السوق",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_search",
+      "order": 2,
+      "type": "wordsearch",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_wsr_002"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_pw_1",
+      "title": "الخزنة الأولى",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pass",
+      "order": 1,
+      "type": "password",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_pwd_001",
+        "c_pwd_002"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_pw_2",
+      "title": "الخزنة الثانية",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pass",
+      "order": 2,
+      "type": "password",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_pwd_003",
+        "c_pwd_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_order_1",
+      "title": "حروف مبعثرة",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_order",
+      "order": 1,
+      "type": "order",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_ord_001",
+        "c_ord_002",
+        "c_ord_003",
+        "c_ord_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_order_2",
+      "title": "كلمات مبعثرة",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_order",
+      "order": 2,
+      "type": "order",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_ord_005",
+        "c_ord_006",
+        "c_ord_007",
+        "c_ord_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_pic_1",
+      "title": "رموز تتكلم",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_picture",
+      "order": 1,
+      "type": "picture",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_pic_001",
+        "c_pic_002",
+        "c_pic_003",
+        "c_pic_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_pic_2",
+      "title": "أشكال وألغاز",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_picture",
+      "order": 2,
+      "type": "picture",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_pic_005",
+        "c_pic_006",
+        "c_pic_007",
+        "c_pic_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_pat_1",
+      "title": "تسلسلات رقمية",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pattern",
+      "order": 1,
+      "type": "pattern",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_pat_001",
+        "c_pat_002",
+        "c_pat_003",
+        "c_pat_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_pat_2",
+      "title": "أنماط الحروف والرموز",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pattern",
+      "order": 2,
+      "type": "pattern",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_pat_005",
+        "c_pat_006",
+        "c_pat_007",
+        "c_pat_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_obs_1",
+      "title": "المختلف",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_observe",
+      "order": 1,
+      "type": "observation",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_obs_001",
+        "c_obs_002",
+        "c_obs_003"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_pz_obs_2",
+      "title": "عدّ وتدقيق",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_observe",
+      "order": 2,
+      "type": "observation",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_obs_004",
+        "c_obs_005",
+        "c_obs_006"
+      ],
+      "completion": {},
+      "status": "published"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "c_log_001",
+      "kind": "text",
+      "prompt": "شيءٌ كلما أخذتَ منه كَبُر، فما هو؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يُصنع بالمجرفة.",
+        "تحفره في الأرض."
+      ],
+      "explanation": "كلما أخذت من تراب الحفرة ازدادت حجمًا.",
+      "status": "published",
+      "answer": "الحفرة",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true,
+        "foldTaMarbuta": true
+      }
+    },
+    {
+      "id": "c_log_002",
+      "kind": "text",
+      "prompt": "له أسنان ولا يَعَض، فما هو؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تستخدمه كل صباح.",
+        "يرتب الشعر."
+      ],
+      "explanation": "المشط له أسنان لكنه لا يعض.",
+      "status": "published",
+      "answer": "المشط",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true,
+        "foldTaMarbuta": true
+      }
+    },
+    {
+      "id": "c_log_003",
+      "kind": "number",
+      "prompt": "في سباق جري، تجاوزتَ المتسابق صاحب المركز الثاني. في أي مركز أصبحت؟",
+      "category": "logic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "لم تتجاوز صاحب المركز الأول.",
+        "أخذت مكان من تجاوزته."
+      ],
+      "explanation": "عندما تتجاوز صاحب المركز الثاني تأخذ مركزه، فتصبح الثاني لا الأول.",
+      "status": "published",
+      "answer": 2
+    },
+    {
+      "id": "c_log_004",
+      "kind": "mcq",
+      "prompt": "كل طلاب الصف يحبون القراءة، وسالم طالب في هذا الصف. أي العبارات صحيحة حتمًا؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "ما ينطبق على الكل ينطبق على كل فرد.",
+        "سالم أحد أفراد الصف."
+      ],
+      "explanation": "بما أن كل الطلاب يحبون القراءة وسالم منهم، فسالم يحب القراءة حتمًا.",
+      "status": "published",
+      "options": [
+        "سالم يحب الرياضة",
+        "سالم يحب القراءة",
+        "لا يمكن استنتاج شيء",
+        "بعض الطلاب لا يحبون القراءة"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "c_log_005",
+      "kind": "number",
+      "prompt": "عند راعٍ 17 خروفًا، شردت كلها إلا 9. كم خروفًا بقي عنده؟",
+      "category": "logic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "اقرأ السؤال بتمعن: «إلا 9».",
+        "لا تحتاج إلى طرح."
+      ],
+      "explanation": "«شردت كلها إلا 9» يعني أن 9 بقيت.",
+      "status": "published",
+      "answer": 9
+    },
+    {
+      "id": "c_log_006",
+      "kind": "number",
+      "prompt": "ثلاث قطط تصطاد ثلاثة فئران في ثلاث دقائق. كم قطة تحتاج لاصطياد 100 فأر في 100 دقيقة بالمعدل نفسه؟",
+      "category": "logic",
+      "difficulty": "hard",
+      "points": 25,
+      "hints": [
+        "كم دقيقة تحتاج القطة الواحدة لاصطياد فأر واحد؟",
+        "كل قطة تصطاد فأرًا كل 3 دقائق."
+      ],
+      "explanation": "كل قطة تصطاد فأرًا كل 3 دقائق، فثلاث قطط تصطاد فأرًا كل دقيقة، أي 100 فأر في 100 دقيقة.",
+      "status": "published",
+      "answer": 3
+    },
+    {
+      "id": "c_log_007",
+      "kind": "mcq",
+      "prompt": "سارة أطول من هند، وهند أطول من منى. مَن الأقصر؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "رتّب الثلاث من الأطول إلى الأقصر.",
+        "سارة ثم هند ثم..."
+      ],
+      "explanation": "الترتيب: سارة > هند > منى، فمنى الأقصر.",
+      "status": "published",
+      "options": [
+        "منى",
+        "هند",
+        "لا يمكن المعرفة",
+        "سارة"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_log_008",
+      "kind": "text",
+      "prompt": "ما الشيء الذي يمشي بلا أرجل، ويبكي بلا عيون؟",
+      "category": "logic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "تراه في السماء.",
+        "بكاؤه هو المطر."
+      ],
+      "explanation": "السحاب تحركه الرياح ويهطل منه المطر.",
+      "status": "published",
+      "answer": "السحاب",
+      "acceptedAnswers": [
+        "الغيم",
+        "الغيوم",
+        "السحب",
+        "السحابة",
+        "الغيمة"
+      ],
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true,
+        "foldTaMarbuta": true
+      }
+    },
+    {
+      "id": "c_crs_001",
+      "kind": "crossword",
+      "prompt": "املأ الشبكة: كل حرف في خانة. الكلمات الأفقية تُقرأ من اليمين إلى اليسار، والعمودية من الأعلى إلى الأسفل.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الكلمة الأفقية الأولى تبدأ بحرف القاف.",
+        "الكلمة العمودية اليسرى تبدأ بحرف الراء."
+      ],
+      "explanation": "الحل: قمر، مال، قلم، رمل.",
+      "status": "published",
+      "rows": 3,
+      "cols": 3,
+      "entries": [
+        {
+          "id": "e1",
+          "row": 0,
+          "col": 0,
+          "direction": "across",
+          "answer": "قمر",
+          "clue": "يضيء السماء ليلًا"
+        },
+        {
+          "id": "e2",
+          "row": 2,
+          "col": 0,
+          "direction": "across",
+          "answer": "مال",
+          "clue": "نقود وثروة"
+        },
+        {
+          "id": "e3",
+          "row": 0,
+          "col": 0,
+          "direction": "down",
+          "answer": "قلم",
+          "clue": "أداة للكتابة"
+        },
+        {
+          "id": "e4",
+          "row": 0,
+          "col": 2,
+          "direction": "down",
+          "answer": "رمل",
+          "clue": "حبيبات الصحراء"
+        }
+      ]
+    },
+    {
+      "id": "c_crs_002",
+      "kind": "crossword",
+      "prompt": "املأ الشبكة بكلمات من ثلاثة أحرف.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "كل الكلمات العلوية تبدأ بحرف الباء.",
+        "الكلمة الأفقية السفلى تبدأ بحرف الراء."
+      ],
+      "explanation": "الحل: باب، رعد، بحر، بلد.",
+      "status": "published",
+      "rows": 3,
+      "cols": 3,
+      "entries": [
+        {
+          "id": "e1",
+          "row": 0,
+          "col": 0,
+          "direction": "across",
+          "answer": "باب",
+          "clue": "مدخل البيت"
+        },
+        {
+          "id": "e2",
+          "row": 2,
+          "col": 0,
+          "direction": "across",
+          "answer": "رعد",
+          "clue": "صوت يصاحب البرق"
+        },
+        {
+          "id": "e3",
+          "row": 0,
+          "col": 0,
+          "direction": "down",
+          "answer": "بحر",
+          "clue": "ماء مالح واسع"
+        },
+        {
+          "id": "e4",
+          "row": 0,
+          "col": 2,
+          "direction": "down",
+          "answer": "بلد",
+          "clue": "وطن"
+        }
+      ]
+    },
+    {
+      "id": "c_crs_003",
+      "kind": "crossword",
+      "prompt": "املأ الشبكة بكلمات من ثلاثة أحرف.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "الكلمة الأفقية الأولى تبدأ بحرف النون.",
+        "الكلمتان العموديتان تنتهيان بحرفي الراء والميم."
+      ],
+      "explanation": "الحل: نور، رقم، نهر، رسم.",
+      "status": "published",
+      "rows": 3,
+      "cols": 3,
+      "entries": [
+        {
+          "id": "e1",
+          "row": 0,
+          "col": 0,
+          "direction": "across",
+          "answer": "نور",
+          "clue": "ضياء"
+        },
+        {
+          "id": "e2",
+          "row": 2,
+          "col": 0,
+          "direction": "across",
+          "answer": "رقم",
+          "clue": "عدد مكتوب"
+        },
+        {
+          "id": "e3",
+          "row": 0,
+          "col": 0,
+          "direction": "down",
+          "answer": "نهر",
+          "clue": "مجرى ماء عذب"
+        },
+        {
+          "id": "e4",
+          "row": 0,
+          "col": 2,
+          "direction": "down",
+          "answer": "رسم",
+          "clue": "فن التخطيط والتلوين"
+        }
+      ]
+    },
+    {
+      "id": "c_wsr_001",
+      "kind": "wordsearch",
+      "prompt": "ابحث عن أسماء الحيوانات المخفية في الشبكة: اضغط على الحرف الأول ثم الأخير لكل كلمة.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الكلمات أفقية أو عمودية أو قطرية.",
+        "قد تُقرأ الكلمة الأفقية من اليمين إلى اليسار."
+      ],
+      "explanation": "الكلمات: أسد، نمر، فيل، جمل، ذئب (كُتبت «أسد» في الشبكة بالألف دون همزة).",
+      "status": "published",
+      "grid": [
+        "ذخثاسد",
+        "ئزيجمل",
+        "بنذفطر",
+        "وجمثيص",
+        "ورررول",
+        "ناضماب"
+      ],
+      "words": [
+        "اسد",
+        "نمر",
+        "فيل",
+        "جمل",
+        "ذئب"
+      ]
+    },
+    {
+      "id": "c_wsr_002",
+      "kind": "wordsearch",
+      "prompt": "ابحث عن أسماء الفواكه المخفية في الشبكة.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "ست كلمات في المجموع.",
+        "إحداها ثمرة النخيل."
+      ],
+      "explanation": "الكلمات: تفاح، موز، عنب، تين، رمان، تمر.",
+      "status": "published",
+      "grid": [
+        "كزكحطثم",
+        "هخارتمو",
+        "لفرذقلز",
+        "تلموسرذ",
+        "ثياكممت",
+        "ضغنتقغي",
+        "راعنبثن"
+      ],
+      "words": [
+        "تفاح",
+        "موز",
+        "عنب",
+        "تين",
+        "رمان",
+        "تمر"
+      ]
+    },
+    {
+      "id": "c_pwd_001",
+      "kind": "password",
+      "prompt": "حُلّ الألغاز ليظهر لك حرف من كل إجابة، ثم اكتب كلمة السر.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "كلمة السر أداة للكتابة.",
+        "الحروف بالترتيب: ق ل م."
+      ],
+      "explanation": "كلمة السر «قلم» من الحروف الأولى لـ: قمر، ليمون، مدرسة.",
+      "status": "published",
+      "clues": [
+        {
+          "clue": "جرم سماوي يدور حول الأرض",
+          "answer": "قمر",
+          "letterIndex": 0
+        },
+        {
+          "clue": "ثمرة حمضية صفراء",
+          "answer": "ليمون",
+          "letterIndex": 0
+        },
+        {
+          "clue": "مكان لتعليم الطلاب",
+          "answer": "مدرسة",
+          "letterIndex": 0
+        }
+      ],
+      "answer": "قلم",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldTaMarbuta": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_pwd_002",
+      "kind": "password",
+      "prompt": "حُلّ الألغاز ثم اكتب كلمة السر المكونة من الحروف الظاهرة.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "كلمة السر نجم يضيء النهار.",
+        "الحروف بالترتيب: ش م س."
+      ],
+      "explanation": "كلمة السر «شمس» من: شاي، موز، سمك.",
+      "status": "published",
+      "clues": [
+        {
+          "clue": "مشروب ساخن من أوراق نبات",
+          "answer": "شاي",
+          "letterIndex": 0
+        },
+        {
+          "clue": "فاكهة صفراء طويلة",
+          "answer": "موز",
+          "letterIndex": 0
+        },
+        {
+          "clue": "حيوان يعيش في الماء ويتنفس بالخياشيم",
+          "answer": "سمك",
+          "letterIndex": 0,
+          "acceptedAnswers": [
+            "سمكة"
+          ]
+        }
+      ],
+      "answer": "شمس",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldTaMarbuta": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_pwd_003",
+      "kind": "password",
+      "prompt": "لاحظ موضع الحرف المطلوب من كل إجابة، ثم اكتب كلمة السر.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "ليس الحرف الأول دائمًا هو المطلوب.",
+        "كلمة السر شيء نقرؤه."
+      ],
+      "explanation": "كلمة السر «كتاب»: ك من كلب، ت من تمر، ا (الحرف الثاني) من ماء، ب من بحر.",
+      "status": "published",
+      "clues": [
+        {
+          "clue": "حيوان أليف ينبح",
+          "answer": "كلب",
+          "letterIndex": 0
+        },
+        {
+          "clue": "ثمر النخيل",
+          "answer": "تمر",
+          "letterIndex": 0
+        },
+        {
+          "clue": "سائل لا لون له ضروري للحياة",
+          "answer": "ماء",
+          "letterIndex": 1
+        },
+        {
+          "clue": "مسطح مائي مالح واسع",
+          "answer": "بحر",
+          "letterIndex": 0
+        }
+      ],
+      "answer": "كتاب",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldTaMarbuta": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_pwd_004",
+      "kind": "password",
+      "prompt": "حُلّ الألغاز ثم اكتب كلمة السر.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "كلمة السر عكس الظلام.",
+        "ثلاثة أحرف."
+      ],
+      "explanation": "كلمة السر «نور» من: نحلة، وردة، رمان.",
+      "status": "published",
+      "clues": [
+        {
+          "clue": "حشرة تصنع العسل",
+          "answer": "نحلة",
+          "letterIndex": 0
+        },
+        {
+          "clue": "زهرة عطرة لها أشواك",
+          "answer": "وردة",
+          "letterIndex": 0
+        },
+        {
+          "clue": "فاكهة حمراء حباتها كثيرة",
+          "answer": "رمان",
+          "letterIndex": 0
+        }
+      ],
+      "answer": "نور",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldTaMarbuta": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_ord_001",
+      "kind": "order",
+      "prompt": "رتّب الحروف لتكوين اسم جهاز إلكتروني.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "نستخدمه للبرمجة والكتابة.",
+        "يبدأ بحرف الحاء."
+      ],
+      "explanation": "الكلمة: حاسوب.",
+      "status": "published",
+      "unit": "letters",
+      "tiles": [
+        "و",
+        "ح",
+        "س",
+        "ب",
+        "ا"
+      ],
+      "answer": "حاسوب"
+    },
+    {
+      "id": "c_ord_002",
+      "kind": "order",
+      "prompt": "رتّب الحروف لتكوين اسم مكان تُحفظ فيه الكتب.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يبدأ بحرف الميم.",
+        "ينتهي بتاء مربوطة."
+      ],
+      "explanation": "الكلمة: مكتبة.",
+      "status": "published",
+      "unit": "letters",
+      "tiles": [
+        "ب",
+        "م",
+        "ت",
+        "ك",
+        "ة"
+      ],
+      "answer": "مكتبة"
+    },
+    {
+      "id": "c_ord_003",
+      "kind": "order",
+      "prompt": "رتّب الحروف لتكوين اسم فاكهة.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "لونها يحمل اسمها.",
+        "تبدأ بحرف الباء."
+      ],
+      "explanation": "الكلمة: برتقال.",
+      "status": "published",
+      "unit": "letters",
+      "tiles": [
+        "ل",
+        "ا",
+        "ب",
+        "ر",
+        "ت",
+        "ق"
+      ],
+      "answer": "برتقال"
+    },
+    {
+      "id": "c_ord_004",
+      "kind": "order",
+      "prompt": "رتّب الحروف لتكوين اسم وسيلة نقل جوية.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "تهبط في المطار.",
+        "تبدأ بحرف الطاء."
+      ],
+      "explanation": "الكلمة: طائرة.",
+      "status": "published",
+      "unit": "letters",
+      "tiles": [
+        "ر",
+        "ا",
+        "ط",
+        "ة",
+        "ئ"
+      ],
+      "answer": "طائرة"
+    },
+    {
+      "id": "c_ord_005",
+      "kind": "order",
+      "prompt": "رتّب الكلمات لتكوين حكمة عن العلم.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "تبدأ بكلمة «العلم».",
+        "فيها مقابلة بين نور وظلام."
+      ],
+      "explanation": "الحكمة: العلم نور والجهل ظلام.",
+      "status": "published",
+      "unit": "words",
+      "tiles": [
+        "ظلام",
+        "العلم",
+        "نور",
+        "والجهل"
+      ],
+      "answer": "العلم نور والجهل ظلام"
+    },
+    {
+      "id": "c_ord_006",
+      "kind": "order",
+      "prompt": "رتّب الكلمات لتكوين حكمة عن البلاغة.",
+      "category": "words",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "تبدأ بكلمة «خير».",
+        "آخر كلمة «ودلّ»."
+      ],
+      "explanation": "الحكمة: خير الكلام ما قلّ ودلّ.",
+      "status": "published",
+      "unit": "words",
+      "tiles": [
+        "الكلام",
+        "ودل",
+        "ما",
+        "قل",
+        "خير"
+      ],
+      "answer": "خير الكلام ما قل ودل"
+    },
+    {
+      "id": "c_ord_007",
+      "kind": "order",
+      "prompt": "رتّب الكلمات لتكوين حكمة عن الرضا.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تبدأ بكلمة «القناعة».",
+        "الكنز هنا لا ينفد."
+      ],
+      "explanation": "الحكمة: القناعة كنز لا يفنى.",
+      "status": "published",
+      "unit": "words",
+      "tiles": [
+        "يفنى",
+        "القناعة",
+        "كنز",
+        "لا"
+      ],
+      "answer": "القناعة كنز لا يفنى"
+    },
+    {
+      "id": "c_ord_008",
+      "kind": "order",
+      "prompt": "رتّب الكلمات لتكوين مثل عن الخطأ العارض.",
+      "category": "words",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الجواد هو الفرس الأصيل.",
+        "يبدأ بـ«لكل»."
+      ],
+      "explanation": "المثل: لكل جواد كبوة.",
+      "status": "published",
+      "unit": "words",
+      "tiles": [
+        "لكل",
+        "كبوة",
+        "جواد"
+      ],
+      "answer": "لكل جواد كبوة"
+    },
+    {
+      "id": "c_pic_001",
+      "kind": "text",
+      "prompt": "ما اسم الزهرة التي تمثلها الصورة، ويرتبط اسمها بالشمس؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "زهرة صفراء كبيرة تُستخرج من بذورها الزيوت.",
+        "اسمها من كلمتين آخرهما «الشمس»."
+      ],
+      "explanation": "تُسمّى «دوّار الشمس» أو «عبّاد الشمس».",
+      "status": "published",
+      "answer": "دوار الشمس",
+      "media": {
+        "type": "emoji",
+        "value": "☀️ 🌻",
+        "caption": "زهرة وشمس"
+      },
+      "acceptedAnswers": [
+        "عباد الشمس",
+        "زهرة عباد الشمس",
+        "زهرة دوار الشمس"
+      ],
+      "match": {
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_pic_002",
+      "kind": "mcq",
+      "prompt": "أي لقب يُطلق على الحيوان في الصورة؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يصبر على العطش أيامًا.",
+        "يعيش في البيئة الظاهرة في الصورة."
+      ],
+      "explanation": "الجمل يُلقب بسفينة الصحراء لقدرته على قطعها.",
+      "status": "published",
+      "options": [
+        "ملك الغابة",
+        "سفينة الصحراء",
+        "صديق الإنسان الوفي",
+        "سيد البحار"
+      ],
+      "correctIndex": 1,
+      "media": {
+        "type": "emoji",
+        "value": "🐪 🏜️"
+      }
+    },
+    {
+      "id": "c_pic_003",
+      "kind": "text",
+      "prompt": "ما الظاهرة التي تتكون في الصورة؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تحدث عند سقوط ضوء الشمس على قطرات المطر.",
+        "لها سبعة ألوان."
+      ],
+      "explanation": "قوس قزح يتكون من انكسار ضوء الشمس وتحلله في قطرات الماء.",
+      "status": "published",
+      "answer": "قوس قزح",
+      "media": {
+        "type": "emoji",
+        "value": "🌧️ ➕ ☀️ ➡️ ❓"
+      },
+      "acceptedAnswers": [
+        "قوس المطر"
+      ],
+      "match": {
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_pic_004",
+      "kind": "text",
+      "prompt": "ما المهنة التي تشير إليها الصورة؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تواجه الحرائق.",
+        "تستخدم سيارة حمراء."
+      ],
+      "explanation": "رجل الإطفاء يكافح الحرائق.",
+      "status": "published",
+      "answer": "إطفائي",
+      "media": {
+        "type": "emoji",
+        "value": "🔥 🚒 🧯"
+      },
+      "acceptedAnswers": [
+        "رجل إطفاء",
+        "رجل المطافئ"
+      ],
+      "match": {
+        "foldAlef": true,
+        "ignoreDefiniteArticle": true
+      }
+    },
+    {
+      "id": "c_pic_005",
+      "kind": "number",
+      "prompt": "كم مثلثًا تراه في الشكل؟",
+      "category": "visual",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "لا تنسَ المثلث الكبير.",
+        "الخط في المنتصف يقسم الكبير إلى مثلثين."
+      ],
+      "explanation": "مثلثان صغيران ومثلث كبير يضمهما = 3.",
+      "status": "published",
+      "answer": 3,
+      "media": {
+        "type": "shapes",
+        "viewBox": "0 0 200 180",
+        "alt": "مثلث كبير يقسمه خط من رأسه إلى منتصف قاعدته",
+        "shapes": [
+          {
+            "shape": "polygon",
+            "points": "100,10 190,170 10,170",
+            "fill": "none",
+            "stroke": "#22d3ee",
+            "strokeWidth": 4
+          },
+          {
+            "shape": "line",
+            "x1": 100,
+            "y1": 10,
+            "x2": 100,
+            "y2": 170,
+            "stroke": "#22d3ee",
+            "strokeWidth": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "c_pic_006",
+      "kind": "number",
+      "prompt": "كم مربعًا تراه في الشكل؟",
+      "category": "visual",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "هناك مربعات صغيرة ومربع كبير.",
+        "أربعة صغيرة + ..."
+      ],
+      "explanation": "أربعة مربعات صغيرة ومربع كبير يضمها = 5.",
+      "status": "published",
+      "answer": 5,
+      "media": {
+        "type": "shapes",
+        "viewBox": "0 0 200 200",
+        "alt": "مربع كبير مقسوم إلى أربعة مربعات صغيرة",
+        "shapes": [
+          {
+            "shape": "rect",
+            "x": 10,
+            "y": 10,
+            "width": 180,
+            "height": 180,
+            "fill": "none",
+            "stroke": "#f59e0b",
+            "strokeWidth": 4
+          },
+          {
+            "shape": "line",
+            "x1": 100,
+            "y1": 10,
+            "x2": 100,
+            "y2": 190,
+            "stroke": "#f59e0b",
+            "strokeWidth": 4
+          },
+          {
+            "shape": "line",
+            "x1": 10,
+            "y1": 100,
+            "x2": 190,
+            "y2": 100,
+            "stroke": "#f59e0b",
+            "strokeWidth": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "c_pic_007",
+      "kind": "text",
+      "prompt": "ما المادة الغذائية التي تصنعها الحشرة في الصورة؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "مادة حلوة ذهبية.",
+        "ورد ذكرها في سورة النحل."
+      ],
+      "explanation": "النحل يصنع العسل من رحيق الأزهار.",
+      "status": "published",
+      "answer": "العسل",
+      "media": {
+        "type": "emoji",
+        "value": "🐝 🌼 ➡️ 🍯"
+      },
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true,
+        "foldTaMarbuta": true
+      }
+    },
+    {
+      "id": "c_pic_008",
+      "kind": "text",
+      "prompt": "ما المكان الذي تشير إليه الصورة؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تجد فيه رفوفًا مليئة بالكتب.",
+        "يمكنك الاستعارة منه."
+      ],
+      "explanation": "المكتبة مكان لحفظ الكتب وقراءتها وإعارتها.",
+      "status": "published",
+      "answer": "مكتبة",
+      "media": {
+        "type": "emoji",
+        "value": "📚 🏛️ 🤫"
+      },
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true,
+        "foldTaMarbuta": true
+      }
+    },
+    {
+      "id": "c_pat_001",
+      "kind": "number",
+      "prompt": "ما العدد التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "كل عدد ضعف الذي قبله.",
+        "16 × 2."
+      ],
+      "explanation": "كل عدد يساوي ضعف سابقه: 16 × 2 = 32.",
+      "status": "published",
+      "answer": 32,
+      "media": {
+        "type": "sequence",
+        "items": [
+          "2",
+          "4",
+          "8",
+          "16",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_pat_002",
+      "kind": "number",
+      "prompt": "ما العدد التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "كل عدد = مجموع العددين قبله.",
+        "5 + 8."
+      ],
+      "explanation": "متتالية فيبوناتشي: 5 + 8 = 13.",
+      "status": "published",
+      "answer": 13,
+      "media": {
+        "type": "sequence",
+        "items": [
+          "1",
+          "1",
+          "2",
+          "3",
+          "5",
+          "8",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_pat_003",
+      "kind": "number",
+      "prompt": "ما العدد التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الفرق ثابت.",
+        "نضيف 3 في كل مرة."
+      ],
+      "explanation": "12 + 3 = 15.",
+      "status": "published",
+      "answer": 15,
+      "media": {
+        "type": "sequence",
+        "items": [
+          "3",
+          "6",
+          "9",
+          "12",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_pat_004",
+      "kind": "number",
+      "prompt": "ما العدد التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "hard",
+      "points": 25,
+      "hints": [
+        "الفروق تتناقص.",
+        "الفروق: 10، 9، 8، 7..."
+      ],
+      "explanation": "الفروق 10 ثم 9 ثم 8 ثم 7، فالتالي 73 − 7 = 66.",
+      "status": "published",
+      "answer": 66,
+      "media": {
+        "type": "sequence",
+        "items": [
+          "100",
+          "90",
+          "81",
+          "73",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_pat_005",
+      "kind": "text",
+      "prompt": "ما الحرف التالي في السلسلة؟ (وفق الترتيب الهجائي: أ ب ت ث ج ح خ ...)",
+      "category": "arabic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "نتخطى حرفًا في كل مرة.",
+        "بعد ج نتخطى ح."
+      ],
+      "explanation": "أ (ب) ت (ث) ج (ح) خ: نتخطى حرفًا في كل خطوة.",
+      "status": "published",
+      "answer": "خ",
+      "media": {
+        "type": "sequence",
+        "items": [
+          "أ",
+          "ت",
+          "ج",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_pat_006",
+      "kind": "mcq",
+      "prompt": "ما الرمز التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "النمط يتكرر كل رمزين.",
+        "آخر رمز ظاهر أحمر."
+      ],
+      "explanation": "النمط أحمر ثم أزرق، والتالي أزرق.",
+      "status": "published",
+      "options": [
+        "🔴",
+        "🟢",
+        "🔵",
+        "🟡"
+      ],
+      "correctIndex": 2,
+      "media": {
+        "type": "sequence",
+        "items": [
+          "🔴",
+          "🔵",
+          "🔴",
+          "🔵",
+          "🔴",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_pat_007",
+      "kind": "text",
+      "prompt": "ما اليوم التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "نتخطى يومًا في كل مرة.",
+        "بعد الأربعاء نتخطى الخميس."
+      ],
+      "explanation": "السبت (الأحد) الاثنين (الثلاثاء) الأربعاء (الخميس) الجمعة.",
+      "status": "published",
+      "answer": "الجمعة",
+      "media": {
+        "type": "sequence",
+        "items": [
+          "السبت",
+          "الاثنين",
+          "الأربعاء",
+          "؟"
+        ]
+      },
+      "acceptedAnswers": [
+        "يوم الجمعة"
+      ],
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true,
+        "foldTaMarbuta": true
+      }
+    },
+    {
+      "id": "c_pat_008",
+      "kind": "mcq",
+      "prompt": "ما الحد التالي في السلسلة؟",
+      "category": "logic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "يتناوب المثلث والمربع.",
+        "العدد يزيد كل حدّين."
+      ],
+      "explanation": "مثلث، مربع، ثم مثلثان، مربعان، ثم ثلاثة مثلثات، فالتالي ثلاثة مربعات.",
+      "status": "published",
+      "options": [
+        "■■",
+        "■■■",
+        "▲▲▲▲",
+        "▲■"
+      ],
+      "correctIndex": 1,
+      "media": {
+        "type": "sequence",
+        "items": [
+          "▲",
+          "■",
+          "▲▲",
+          "■■",
+          "▲▲▲",
+          "؟"
+        ]
+      }
+    },
+    {
+      "id": "c_obs_001",
+      "kind": "observation",
+      "prompt": "اعثر على الرمز المختلف واضغط عليه.",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "ابحث عن ثمرة ليست تفاحة.",
+        "ركّز على الصف الثالث."
+      ],
+      "explanation": "الرمز المختلف هو الطماطم 🍅.",
+      "status": "published",
+      "cells": [
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍅",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎",
+        "🍎"
+      ],
+      "columns": 4,
+      "targets": [
+        9
+      ]
+    },
+    {
+      "id": "c_obs_002",
+      "kind": "observation",
+      "prompt": "اعثر على الوجه المختلف.",
+      "category": "visual",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "الفرق في شكل العينين.",
+        "ركّز على الصف الثالث."
+      ],
+      "explanation": "الوجه المختلف عيناه بيضاويتان 😃.",
+      "status": "published",
+      "cells": [
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😃",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀",
+        "😀"
+      ],
+      "columns": 5,
+      "targets": [
+        13
+      ]
+    },
+    {
+      "id": "c_obs_003",
+      "kind": "observation",
+      "prompt": "اعثر على الأسماك الملونة الثلاث، ثم اضغط «تحقق».",
+      "category": "visual",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "هناك ثلاثة أهداف.",
+        "الأسماك الملونة مخططة."
+      ],
+      "explanation": "الأسماك الملونة في الخانات 3 و8 و13.",
+      "status": "published",
+      "cells": [
+        "🐟",
+        "🐟",
+        "🐠",
+        "🐟",
+        "🐟",
+        "🐟",
+        "🐟",
+        "🐠",
+        "🐟",
+        "🐟",
+        "🐟",
+        "🐟",
+        "🐠",
+        "🐟",
+        "🐟",
+        "🐟"
+      ],
+      "columns": 4,
+      "targets": [
+        2,
+        7,
+        12
+      ]
+    },
+    {
+      "id": "c_obs_004",
+      "kind": "number",
+      "prompt": "كم نجمة ⭐ في الصورة؟",
+      "category": "visual",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "عُدّ النجوم فقط وتجاهل الأقمار والسحب.",
+        "أكثر من 4."
+      ],
+      "explanation": "في الصورة 5 نجوم وقمران وسحابة.",
+      "status": "published",
+      "answer": 5,
+      "media": {
+        "type": "emoji",
+        "value": "⭐ 🌙 ⭐ ☁️ ⭐ ⭐ 🌙 ⭐"
+      }
+    },
+    {
+      "id": "c_obs_005",
+      "kind": "observation",
+      "prompt": "في الشبكة حرفان مختلفان عن البقية. اعثر عليهما ثم اضغط «تحقق».",
+      "category": "arabic",
+      "difficulty": "hard",
+      "points": 25,
+      "hints": [
+        "الفرق في عدد النقاط وموضعها.",
+        "أحدهما في الصف الأول."
+      ],
+      "explanation": "الحرفان المختلفان: «ت» و«ث».",
+      "status": "published",
+      "cells": [
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ت",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ث",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب",
+        "ب"
+      ],
+      "columns": 5,
+      "targets": [
+        4,
+        17
+      ]
+    },
+    {
+      "id": "c_obs_006",
+      "kind": "number",
+      "prompt": "كم دائرة في الشكل؟",
+      "category": "visual",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "تجاهل المربعات.",
+        "الدوائر بأحجام مختلفة."
+      ],
+      "explanation": "في الشكل 7 دوائر و3 مربعات.",
+      "status": "published",
+      "answer": 7,
+      "media": {
+        "type": "shapes",
+        "viewBox": "0 0 240 160",
+        "alt": "دوائر ومربعات متفرقة بأحجام مختلفة",
+        "shapes": [
+          {
+            "shape": "circle",
+            "cx": 30,
+            "cy": 30,
+            "r": 18,
+            "fill": "#22d3ee"
+          },
+          {
+            "shape": "rect",
+            "x": 70,
+            "y": 12,
+            "width": 34,
+            "height": 34,
+            "fill": "#f59e0b"
+          },
+          {
+            "shape": "circle",
+            "cx": 140,
+            "cy": 34,
+            "r": 12,
+            "fill": "#22d3ee"
+          },
+          {
+            "shape": "circle",
+            "cx": 200,
+            "cy": 30,
+            "r": 22,
+            "fill": "#a78bfa"
+          },
+          {
+            "shape": "rect",
+            "x": 16,
+            "y": 84,
+            "width": 28,
+            "height": 28,
+            "fill": "#f59e0b"
+          },
+          {
+            "shape": "circle",
+            "cx": 86,
+            "cy": 100,
+            "r": 16,
+            "fill": "#a78bfa"
+          },
+          {
+            "shape": "circle",
+            "cx": 136,
+            "cy": 112,
+            "r": 26,
+            "fill": "#22d3ee"
+          },
+          {
+            "shape": "rect",
+            "x": 180,
+            "y": 80,
+            "width": 40,
+            "height": 40,
+            "fill": "#f59e0b"
+          },
+          {
+            "shape": "circle",
+            "cx": 60,
+            "cy": 145,
+            "r": 10,
+            "fill": "#34d399"
+          },
+          {
+            "shape": "circle",
+            "cx": 205,
+            "cy": 145,
+            "r": 9,
+            "fill": "#34d399"
+          }
+        ]
+      }
+    }
+  ]
+}

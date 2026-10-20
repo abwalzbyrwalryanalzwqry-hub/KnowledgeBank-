@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Bot, User, Swords, CheckCircle, XCircle, ArrowLeft, Trophy } from 'lucide-react';
 import { Question, GameSettings } from '../types/game';
 import { sound } from '../utils/audio';
+import cortexAvatarImg from '../assets/images/cortex_sage_avatar_1792451916060.jpg';
 
 interface CortexDuelProps {
   questions: Question[];
@@ -198,7 +199,7 @@ export const CortexDuel: React.FC<CortexDuelProps> = ({
             <div className="w-12 h-12 rounded-xl overflow-hidden border border-violet-500/40 shrink-0">
               {duelType === 'AI' ? (
                 <img
-                  src="/src/assets/images/cortex_sage_avatar_1792451916060.jpg"
+                  src={cortexAvatarImg}
                   alt="سديم الذكاء الاصطناعي"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

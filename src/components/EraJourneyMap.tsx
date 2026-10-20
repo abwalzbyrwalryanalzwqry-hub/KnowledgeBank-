@@ -3,6 +3,7 @@ import { Star, Lock, Sparkles, Trophy, ChevronRight, Swords, ArrowLeft } from 'l
 import { Stage, EraId, PlayerStats } from '../types/game';
 import { STAGES_DATA, ERAS_META } from '../data/questions';
 import { sound } from '../utils/audio';
+import eraPortalImg from '../assets/images/era_journey_portal_1792451916189.jpg';
 
 interface EraJourneyMapProps {
   stats: PlayerStats;
@@ -55,7 +56,7 @@ export const EraJourneyMap: React.FC<EraJourneyMapProps> = ({
       {/* Era Journey Portal Cinematic Banner */}
       <div className="relative rounded-2xl overflow-hidden border border-slate-800 h-48 md:h-64 shadow-xl">
         <img
-          src="/src/assets/images/era_journey_portal_1792451916189.jpg"
+          src={eraPortalImg}
           alt="بوابة رحلة العصور"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"

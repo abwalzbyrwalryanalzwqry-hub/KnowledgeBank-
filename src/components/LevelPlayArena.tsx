@@ -31,7 +31,8 @@ interface LevelPlayArenaProps {
   onLevelComplete: (
     stars: number,
     score: number,
-    rewards: { coins: number; xp: number; isPerfect: boolean }
+    rewards: { coins: number; xp: number; isPerfect: boolean },
+    correctCount?: number
   ) => void;
   onExit: () => void;
   onUpdateStats: (updater: (prev: PlayerStats) => PlayerStats) => void;
@@ -168,7 +169,7 @@ export const LevelPlayArena: React.FC<LevelPlayArenaProps> = ({
     confetti({ particleCount: 140, spread: 80, origin: { y: 0.6 } });
 
     setIsLevelFinished(true);
-    onLevelComplete(stars, score, rewards);
+    onLevelComplete(stars, score, rewards, correctCount);
   };
 
   const handleRefillHeartsWithCoins = () => {

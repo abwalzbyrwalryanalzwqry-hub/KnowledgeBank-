@@ -1,6 +1,7 @@
 import React from 'react';
 import { Play, Sparkles, Compass, Trophy, Zap, BookOpen } from 'lucide-react';
 import { sound } from '../utils/audio';
+import heroImg from '../assets/images/hero_knowledge_sanctum_1792451915597.jpg';
 
 interface HeroBannerProps {
   onStartJourney: () => void;
@@ -17,7 +18,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
       <div className="relative rounded-3xl overflow-hidden border border-slate-800/90 shadow-2xl min-h-[360px] md:min-h-[420px] flex items-center">
         {/* Background Image with Scrim Overlay */}
         <img
-          src="/src/assets/images/hero_knowledge_sanctum_1792451915597.jpg"
+          src={heroImg}
           alt="صرح أفق المعرفة المستقبلي"
           className="absolute inset-0 w-full h-full object-cover"
           referrerPolicy="no-referrer"

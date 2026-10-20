@@ -1,9 +1,12 @@
 import { ZaytounaWorld, Question } from '../types/game';
 import { QUESTIONS_DATABASE } from './questions';
 
-// Helper to filter or pick diverse questions across categories for a level
-function pickQuestionsForLevel(indices: number[]): Question[] {
-  return indices.map((idx) => QUESTIONS_DATABASE[idx % QUESTIONS_DATABASE.length]);
+// إصلاح: كانت المستويات تشير إلى الأسئلة بأرقام مواضع خاطئة (لا تطابق التعليقات ولا عناوين المستويات)
+// وتكرر السؤال نفسه داخل المستوى الواحد. أصبح الربط بالمعرف الثابت للسؤال.
+function q(id: string): Question {
+  const found = QUESTIONS_DATABASE.find((x) => x.id === id);
+  if (!found) throw new Error(`سؤال غير موجود: ${id}`);
+  return found;
 }
 
 export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
@@ -24,9 +27,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 1,
         title: 'بوابة الرافدين وأهرامات الجيزة',
         questions: [
-          QUESTIONS_DATABASE[5], // عجائب الدنيا السبع (هرم خوفو)
-          QUESTIONS_DATABASE[20], // مهد الحضارات دجلة والفرات
-          QUESTIONS_DATABASE[4],  // سور القرآن الكريم
+          q('hist_01'), // عجائب الدنيا السبع (هرم خوفو)
+          q('era_01'), // مهد الحضارات دجلة والفرات
+          q('isl_05'), // سور القرآن الكريم
         ],
       },
       {
@@ -35,9 +38,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 2,
         title: 'أسرار الحروف الفينيقية ونهر النيل',
         questions: [
-          QUESTIONS_DATABASE[6], // الأبجدية الفينيقية
-          QUESTIONS_DATABASE[9], // أطول نهر في العالم (النيل)
-          QUESTIONS_DATABASE[17], // معلقة امرؤ القيس
+          q('hist_02'), // الأبجدية الفينيقية
+          q('geo_01'), // أطول نهر في العالم (النيل)
+          q('lit_01'), // معلقة امرؤ القيس
         ],
       },
       {
@@ -46,9 +49,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 3,
         title: 'سد مأرب ومعالم الأنباط الوردية',
         questions: [
-          QUESTIONS_DATABASE[7], // البتراء
-          QUESTIONS_DATABASE[22], // سد مأرب العظيم
-          QUESTIONS_DATABASE[26], // منخفض البحر الميت
+          q('hist_03'), // البتراء
+          q('nat_02'), // سد مأرب العظيم
+          q('mix_03'), // منخفض البحر الميت
         ],
       },
       {
@@ -57,9 +60,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 4,
         title: 'فلسفة الأطلال والألعاب الأولمبية القديمة',
         questions: [
-          QUESTIONS_DATABASE[16], // أولمبيا والألعاب الأولمبية
-          QUESTIONS_DATABASE[21], // رمز النخلة والتراث
-          QUESTIONS_DATABASE[0],  // جامعة القرويين بفاس
+          q('spo_04'), // أولمبيا والألعاب الأولمبية
+          q('nat_01'), // رمز النخلة والتراث
+          q('isl_01'), // جامعة القرويين بفاس
         ],
       },
       {
@@ -68,9 +71,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 5,
         title: 'مضائق التجارة القديمة ورموز الحضارة',
         questions: [
-          QUESTIONS_DATABASE[10], // مضيق باب المندب
-          QUESTIONS_DATABASE[1],  // ابن الهيثم
-          QUESTIONS_DATABASE[13], // معدن الليثيوم
+          q('geo_02'), // مضيق باب المندب
+          q('isl_02'), // ابن الهيثم
+          q('ind_02'), // معدن الليثيوم
         ],
       },
       {
@@ -79,10 +82,10 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 6,
         title: 'امتحان حارس العصور القديمة (المستوى الحاسم)',
         questions: [
-          QUESTIONS_DATABASE[5],
-          QUESTIONS_DATABASE[6],
-          QUESTIONS_DATABASE[7],
-          QUESTIONS_DATABASE[22],
+          q('hist_01'),
+          q('hist_02'),
+          q('hist_03'),
+          q('nat_02'),
         ],
       },
     ],
@@ -105,9 +108,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 1,
         title: 'فجر الأكاديميات الكبرى ومخطوطات بغداد',
         questions: [
-          QUESTIONS_DATABASE[0], // جامعة القرويين
-          QUESTIONS_DATABASE[2], // بيت الحكمة
-          QUESTIONS_DATABASE[19], // المقامات الهمذاني
+          q('isl_01'), // جامعة القرويين
+          q('isl_03'), // بيت الحكمة
+          q('lit_03'), // المقامات الهمذاني
         ],
       },
       {
@@ -116,9 +119,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 2,
         title: 'ثورة المناظر والبصريات',
         questions: [
-          QUESTIONS_DATABASE[1], // ابن الهيثم
-          QUESTIONS_DATABASE[25], // مريم الأسطرلابي
-          QUESTIONS_DATABASE[11], // عاصمة كازاخستان أستانا
+          q('isl_02'), // ابن الهيثم
+          q('mix_02'), // مريم الأسطرلابي
+          q('geo_03'), // عاصمة كازاخستان أستانا
         ],
       },
       {
@@ -127,9 +130,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 3,
         title: 'عباقرة الطب والتشريح الدقيق',
         questions: [
-          QUESTIONS_DATABASE[3], // ابن النفيس والدورة الصغرى
-          QUESTIONS_DATABASE[21], // ابن بطوطة
-          QUESTIONS_DATABASE[14], // مونديال قطر 2022
+          q('isl_04'), // ابن النفيس والدورة الصغرى
+          q('era_02'), // ابن بطوطة
+          q('spo_01'), // مونديال قطر 2022
         ],
       },
       {
@@ -138,9 +141,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 4,
         title: 'رحالة الآفاق ورسائل المعرفة',
         questions: [
-          QUESTIONS_DATABASE[21], // ابن بطوطة
-          QUESTIONS_DATABASE[19], // دانتي والكوميديا الإلهية
-          QUESTIONS_DATABASE[12], // محرك البخار جيمس واط
+          q('era_02'), // ابن بطوطة
+          q('lit_04'), // دانتي والكوميديا الإلهية
+          q('ind_01'), // محرك البخار جيمس واط
         ],
       },
       {
@@ -149,9 +152,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 5,
         title: 'حساب الفلك وصناع الأسطرلاب',
         questions: [
-          QUESTIONS_DATABASE[25], // مريم الأسطرلابي
-          QUESTIONS_DATABASE[13], // تكلفة الفرصة البديلة
-          QUESTIONS_DATABASE[18], // نجيب محفوظ ونوبل
+          q('mix_02'), // مريم الأسطرلابي
+          q('ind_03'), // تكلفة الفرصة البديلة
+          q('lit_02'), // نجيب محفوظ ونوبل
         ],
       },
       {
@@ -160,10 +163,10 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 6,
         title: 'مجلس حكيم بيت الحكمة (المستوى الحاسم)',
         questions: [
-          QUESTIONS_DATABASE[0],
-          QUESTIONS_DATABASE[1],
-          QUESTIONS_DATABASE[2],
-          QUESTIONS_DATABASE[3],
+          q('isl_01'),
+          q('isl_02'),
+          q('isl_03'),
+          q('isl_04'),
         ],
       },
     ],
@@ -186,9 +189,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 1,
         title: 'هدير البخار وفتح القسطنطينية',
         questions: [
-          QUESTIONS_DATABASE[12], // جيمس واط
-          QUESTIONS_DATABASE[8],  // فتح القسطنطينية 1453
-          QUESTIONS_DATABASE[15], // يوسين بولت
+          q('ind_01'), // جيمس واط
+          q('hist_04'), // فتح القسطنطينية 1453
+          q('spo_02'), // يوسين بولت
         ],
       },
       {
@@ -197,9 +200,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 2,
         title: 'طرق القوافل وسلاسل الأسواق الكبرى',
         questions: [
-          QUESTIONS_DATABASE[14], // تكلفة الفرصة البديلة
-          QUESTIONS_DATABASE[11], // قمة كليمنجارو
-          QUESTIONS_DATABASE[27], // مؤشر ناسداك 100
+          q('ind_03'), // تكلفة الفرصة البديلة
+          q('geo_04'), // قمة كليمنجارو
+          q('mix_04'), // مؤشر ناسداك 100
         ],
       },
       {
@@ -208,9 +211,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 3,
         title: 'سباقات البحار والرياح العالمية',
         questions: [
-          QUESTIONS_DATABASE[16], // كأس أمريكا لليخوت
-          QUESTIONS_DATABASE[13], // الليثيوم
-          QUESTIONS_DATABASE[23], // مكتبة الإسكندرية الجديدة
+          q('spo_03'), // كأس أمريكا لليخوت
+          q('ind_02'), // الليثيوم
+          q('nat_03'), // مكتبة الإسكندرية الجديدة
         ],
       },
       {
@@ -219,9 +222,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 4,
         title: 'روائع الأدب العالمي وعصر النهضة',
         questions: [
-          QUESTIONS_DATABASE[20], // دانتي
-          QUESTIONS_DATABASE[10], // أستانا
-          QUESTIONS_DATABASE[28], // رافاييل نادال رولان غاروس
+          q('lit_04'), // دانتي
+          q('geo_03'), // أستانا
+          q('mix_05'), // رافاييل نادال رولان غاروس
         ],
       },
       {
@@ -230,9 +233,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 5,
         title: 'موازين القوى الاقتصادية وسوق المعادن',
         questions: [
-          QUESTIONS_DATABASE[27], // ناسداك 100
-          QUESTIONS_DATABASE[13], // الليثيوم
-          QUESTIONS_DATABASE[15], // رقائق TSMC
+          q('mix_04'), // ناسداك 100
+          q('ind_02'), // الليثيوم
+          q('ind_04'), // رقائق TSMC
         ],
       },
       {
@@ -241,10 +244,10 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 6,
         title: 'تحدي عميد التجارة والصناعة (المستوى الحاسم)',
         questions: [
-          QUESTIONS_DATABASE[8],
-          QUESTIONS_DATABASE[12],
-          QUESTIONS_DATABASE[14],
-          QUESTIONS_DATABASE[27],
+          q('hist_04'),
+          q('ind_01'),
+          q('ind_03'),
+          q('mix_04'),
         ],
       },
     ],
@@ -267,9 +270,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 1,
         title: 'آلة تورنغ وقفزة أبولو 11 نحو القمر',
         questions: [
-          QUESTIONS_DATABASE[10], // آلان تورنغ
-          QUESTIONS_DATABASE[22], // هبوط القمر 1969
-          QUESTIONS_DATABASE[18], // نجيب محفوظ
+          q('tech_02'), // آلان تورنغ
+          q('era_03'), // هبوط القمر 1969
+          q('lit_02'), // نجيب محفوظ
         ],
       },
       {
@@ -278,9 +281,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 2,
         title: 'تشفير الكتل وسجلات البلوكتشين',
         questions: [
-          QUESTIONS_DATABASE[24], // التشفير والتجزئة البلوكتشين
-          QUESTIONS_DATABASE[14], // مونديال قطر 2022
-          QUESTIONS_DATABASE[23], // مكتبة الإسكندرية
+          q('mix_01'), // التشفير والتجزئة البلوكتشين
+          q('spo_01'), // مونديال قطر 2022
+          q('nat_03'), // مكتبة الإسكندرية
         ],
       },
       {
@@ -289,9 +292,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 3,
         title: 'صناع السيليكون وأرقام السرعة الأسطورية',
         questions: [
-          QUESTIONS_DATABASE[15], // TSMC رقائق أشباه الموصلات
-          QUESTIONS_DATABASE[15], // يوسين بولت
-          QUESTIONS_DATABASE[24], // مبادرة السعودية الخضراء
+          q('ind_04'), // TSMC رقائق أشباه الموصلات
+          q('spo_02'), // يوسين بولت
+          q('nat_04'), // مبادرة السعودية الخضراء
         ],
       },
       {
@@ -300,9 +303,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 4,
         title: 'عواصم الحداثة ومؤشرات وول ستريت',
         questions: [
-          QUESTIONS_DATABASE[11], // أستانا
-          QUESTIONS_DATABASE[27], // ناسداك 100
-          QUESTIONS_DATABASE[28], // رافاييل نادال
+          q('geo_03'), // أستانا
+          q('mix_04'), // ناسداك 100
+          q('mix_05'), // رافاييل نادال
         ],
       },
       {
@@ -311,9 +314,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 5,
         title: 'المبادرات البيئية والنهضة الشاملة',
         questions: [
-          QUESTIONS_DATABASE[24], // السعودية الخضراء
-          QUESTIONS_DATABASE[24], // البلوكتشين
-          QUESTIONS_DATABASE[10], // آلان تورنغ
+          q('nat_04'), // السعودية الخضراء
+          q('mix_01'), // البلوكتشين
+          q('tech_02'), // آلان تورنغ
         ],
       },
       {
@@ -322,10 +325,10 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 6,
         title: 'امتحان حارس البيانات الرقمية (المستوى الحاسم)',
         questions: [
-          QUESTIONS_DATABASE[10],
-          QUESTIONS_DATABASE[15],
-          QUESTIONS_DATABASE[22],
-          QUESTIONS_DATABASE[24],
+          q('tech_02'),
+          q('ind_04'),
+          q('era_03'),
+          q('mix_01'),
         ],
       },
     ],
@@ -348,9 +351,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 1,
         title: 'بنية المحولات (Transformers) والكوبت الكمي',
         questions: [
-          QUESTIONS_DATABASE[11], // Transformers الانتباه الذاتي
-          QUESTIONS_DATABASE[9],  // الكوبت في الحواسيب الكمية
-          QUESTIONS_DATABASE[13], // TSMC
+          q('tech_03'), // Transformers الانتباه الذاتي
+          q('tech_01'), // الكوبت في الحواسيب الكمية
+          q('ind_04'), // TSMC
         ],
       },
       {
@@ -359,9 +362,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 2,
         title: 'عيون جيمس ويب عند نقطة لاغرانج L2',
         questions: [
-          QUESTIONS_DATABASE[12], // تلسكوب جيمس ويب
-          QUESTIONS_DATABASE[23], // مفاعل إيتر الاندماجي ITER
-          QUESTIONS_DATABASE[24], // البلوكتشين
+          q('tech_04'), // تلسكوب جيمس ويب
+          q('era_04'), // مفاعل إيتر الاندماجي ITER
+          q('mix_01'), // البلوكتشين
         ],
       },
       {
@@ -370,9 +373,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 3,
         title: 'طاقة النجوم المصغرة ومستقبل البشرية',
         questions: [
-          QUESTIONS_DATABASE[23], // مفاعل إيتر
-          QUESTIONS_DATABASE[9],  // الكوبت
-          QUESTIONS_DATABASE[11], // المحولات
+          q('era_04'), // مفاعل إيتر
+          q('tech_01'), // الكوبت
+          q('tech_03'), // المحولات
         ],
       },
       {
@@ -381,9 +384,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 4,
         title: 'النانوميتر الفائق وأشباه الموصلات الذرية',
         questions: [
-          QUESTIONS_DATABASE[15], // TSMC
-          QUESTIONS_DATABASE[12], // جيمس ويب
-          QUESTIONS_DATABASE[24], // السعودية الخضراء
+          q('ind_04'), // TSMC
+          q('tech_04'), // جيمس ويب
+          q('nat_04'), // السعودية الخضراء
         ],
       },
       {
@@ -392,9 +395,9 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 5,
         title: 'مصفوفة التكامل بين التاريخ والمستقبل',
         questions: [
-          QUESTIONS_DATABASE[1],  // ابن الهيثم
-          QUESTIONS_DATABASE[11], // المحولات
-          QUESTIONS_DATABASE[23], // مفاعل إيتر
+          q('isl_02'), // ابن الهيثم
+          q('tech_03'), // المحولات
+          q('era_04'), // مفاعل إيتر
         ],
       },
       {
@@ -403,10 +406,10 @@ export const ZAYTOUNA_WORLDS: ZaytounaWorld[] = [
         levelNumber: 6,
         title: 'المواجهة الأسطورية: إمبراطور المعرفة الخالد',
         questions: [
-          QUESTIONS_DATABASE[9],
-          QUESTIONS_DATABASE[11],
-          QUESTIONS_DATABASE[12],
-          QUESTIONS_DATABASE[23],
+          q('tech_01'),
+          q('tech_03'),
+          q('tech_04'),
+          q('era_04'),
         ],
       },
     ],

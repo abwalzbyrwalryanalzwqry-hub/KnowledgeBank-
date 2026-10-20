@@ -1,0 +1,2235 @@
+{
+  "packId": "w1-dawn",
+  "version": 1,
+  "worlds": [
+    {
+      "id": "w_dawn",
+      "title": "سهول الفجر",
+      "subtitle": "بداية الرحلة: معارف أساسية في عشرة ميادين",
+      "order": 1,
+      "icon": "Sunrise",
+      "color": "#F59E0B",
+      "unlockRatio": 0
+    }
+  ],
+  "groups": [
+    {
+      "id": "g_dawn_general",
+      "worldId": "w_dawn",
+      "title": "مجلس الثقافة العامة",
+      "order": 1,
+      "icon": "Lightbulb",
+      "stageType": "general"
+    },
+    {
+      "id": "g_dawn_history",
+      "worldId": "w_dawn",
+      "title": "ديوان التاريخ والحضارات",
+      "order": 2,
+      "icon": "Landmark",
+      "stageType": "history"
+    },
+    {
+      "id": "g_dawn_geo",
+      "worldId": "w_dawn",
+      "title": "أطلس العواصم والبلدان",
+      "order": 3,
+      "icon": "Earth",
+      "stageType": "geography"
+    },
+    {
+      "id": "g_dawn_science",
+      "worldId": "w_dawn",
+      "title": "مختبر الطبيعة",
+      "order": 4,
+      "icon": "FlaskConical",
+      "stageType": "science"
+    },
+    {
+      "id": "g_dawn_religion",
+      "worldId": "w_dawn",
+      "title": "رياض المعرفة الدينية",
+      "order": 5,
+      "icon": "BookOpen",
+      "stageType": "religion"
+    },
+    {
+      "id": "g_dawn_math",
+      "worldId": "w_dawn",
+      "title": "ميدان الأرقام",
+      "order": 6,
+      "icon": "Calculator",
+      "stageType": "math"
+    },
+    {
+      "id": "g_dawn_arabic",
+      "worldId": "w_dawn",
+      "title": "بيت الضاد",
+      "order": 7,
+      "icon": "PenLine",
+      "stageType": "arabic"
+    },
+    {
+      "id": "g_dawn_proverbs",
+      "worldId": "w_dawn",
+      "title": "سوق الأمثال والحكم",
+      "order": 8,
+      "icon": "MessageSquareQuote",
+      "stageType": "proverbs"
+    },
+    {
+      "id": "g_dawn_sports",
+      "worldId": "w_dawn",
+      "title": "ملعب الأبطال",
+      "order": 9,
+      "icon": "Trophy",
+      "stageType": "sports"
+    },
+    {
+      "id": "g_dawn_tech",
+      "worldId": "w_dawn",
+      "title": "ورشة المخترعين",
+      "order": 10,
+      "icon": "Cpu",
+      "stageType": "technology"
+    }
+  ],
+  "stages": [
+    {
+      "id": "s_dawn_general_1",
+      "title": "أول الطريق",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_general",
+      "order": 1,
+      "type": "general",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_gen_001",
+        "c_gen_002",
+        "c_gen_003",
+        "c_gen_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_general_2",
+      "title": "حصيلة المجلس",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_general",
+      "order": 2,
+      "type": "general",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_gen_005",
+        "c_gen_006",
+        "c_gen_007",
+        "c_gen_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_history_1",
+      "title": "أطلال وممالك",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_history",
+      "order": 1,
+      "type": "history",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_his_001",
+        "c_his_002",
+        "c_his_003",
+        "c_his_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_history_2",
+      "title": "صفحات من التاريخ الإسلامي",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_history",
+      "order": 2,
+      "type": "history",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_his_005",
+        "c_his_006",
+        "c_his_007",
+        "c_his_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_geo_1",
+      "title": "عواصم عربية",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_geo",
+      "order": 1,
+      "type": "geography",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_geo_001",
+        "c_geo_002",
+        "c_geo_003",
+        "c_geo_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_geo_2",
+      "title": "قارات وبحار",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_geo",
+      "order": 2,
+      "type": "geography",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_geo_005",
+        "c_geo_006",
+        "c_geo_007",
+        "c_geo_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_sci_1",
+      "title": "أسرار الجسم والطبيعة",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_science",
+      "order": 1,
+      "type": "science",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_sci_001",
+        "c_sci_002",
+        "c_sci_003",
+        "c_sci_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_sci_2",
+      "title": "عناصر وكواكب",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_science",
+      "order": 2,
+      "type": "science",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_sci_005",
+        "c_sci_006",
+        "c_sci_007",
+        "c_sci_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_rel_1",
+      "title": "مع القرآن الكريم",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_religion",
+      "order": 1,
+      "type": "religion",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_rel_001",
+        "c_rel_002",
+        "c_rel_003",
+        "c_rel_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_rel_2",
+      "title": "أركان وعبادات",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_religion",
+      "order": 2,
+      "type": "religion",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_rel_005",
+        "c_rel_006",
+        "c_rel_007",
+        "c_rel_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_math_1",
+      "title": "حساب ذهني",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_math",
+      "order": 1,
+      "type": "math",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_mat_001",
+        "c_mat_002",
+        "c_mat_003",
+        "c_mat_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_math_2",
+      "title": "ألغاز عددية",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_math",
+      "order": 2,
+      "type": "math",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_mat_005",
+        "c_mat_006",
+        "c_mat_007",
+        "c_mat_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_ar_1",
+      "title": "مفردات وجموع",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_arabic",
+      "order": 1,
+      "type": "arabic",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_ara_001",
+        "c_ara_002",
+        "c_ara_003",
+        "c_ara_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_ar_2",
+      "title": "نحو وبلاغة",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_arabic",
+      "order": 2,
+      "type": "arabic",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_ara_005",
+        "c_ara_006",
+        "c_ara_007",
+        "c_ara_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_prov_1",
+      "title": "أكمل المثل",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_proverbs",
+      "order": 1,
+      "type": "proverbs",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_prv_001",
+        "c_prv_002",
+        "c_prv_003",
+        "c_prv_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_prov_2",
+      "title": "معاني الحكم",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_proverbs",
+      "order": 2,
+      "type": "proverbs",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_prv_005",
+        "c_prv_006",
+        "c_prv_007",
+        "c_prv_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_sport_1",
+      "title": "قوانين اللعب",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_sports",
+      "order": 1,
+      "type": "sports",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_spo_001",
+        "c_spo_002",
+        "c_spo_003",
+        "c_spo_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_sport_2",
+      "title": "أحداث رياضية",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_sports",
+      "order": 2,
+      "type": "sports",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_spo_005",
+        "c_spo_006",
+        "c_spo_007",
+        "c_spo_008"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_tech_1",
+      "title": "حاسوب وشبكات",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_tech",
+      "order": 1,
+      "type": "technology",
+      "difficulty": "easy",
+      "completionPoints": 20,
+      "completionCoins": 10,
+      "challengeIds": [
+        "c_tec_001",
+        "c_tec_002",
+        "c_tec_003",
+        "c_tec_004"
+      ],
+      "completion": {},
+      "status": "published"
+    },
+    {
+      "id": "s_dawn_tech_2",
+      "title": "اختراعات غيّرت العالم",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_tech",
+      "order": 2,
+      "type": "technology",
+      "difficulty": "medium",
+      "completionPoints": 30,
+      "completionCoins": 15,
+      "challengeIds": [
+        "c_tec_005",
+        "c_tec_006",
+        "c_tec_007",
+        "c_tec_008"
+      ],
+      "completion": {},
+      "status": "published"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "c_gen_001",
+      "kind": "mcq",
+      "prompt": "كم عدد أيام السنة الميلادية البسيطة (غير الكبيسة)؟",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "السنة الكبيسة تزيد يومًا واحدًا عن البسيطة.",
+        "السنة الكبيسة 366 يومًا."
+      ],
+      "explanation": "السنة الميلادية البسيطة 365 يومًا، والكبيسة 366 يومًا بإضافة يوم 29 فبراير.",
+      "status": "published",
+      "options": [
+        "360",
+        "366",
+        "354",
+        "365"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": "c_gen_002",
+      "kind": "truefalse",
+      "prompt": "الحوت الأزرق من الثدييات وليس من الأسماك.",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "فكّر: هل يرضع صغاره؟",
+        "يتنفس الحوت الهواء برئتين."
+      ],
+      "explanation": "الحوت الأزرق من الثدييات البحرية: يتنفس بالرئتين ويرضع صغاره، وهو أضخم حيوان معروف.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Blue whale",
+          "url": "https://www.britannica.com/animal/blue-whale"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": true
+    },
+    {
+      "id": "c_gen_003",
+      "kind": "text",
+      "prompt": "ما اللون الناتج عن خلط اللونين الأزرق والأصفر في ألوان الرسم؟",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "هو لون أوراق الشجر.",
+        "يبدأ بحرف الألف."
+      ],
+      "explanation": "خلط الأزرق والأصفر في الألوان المائية أو الزيتية يعطي اللون الأخضر.",
+      "status": "published",
+      "answer": "أخضر",
+      "acceptedAnswers": [
+        "اللون الأخضر"
+      ],
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_gen_004",
+      "kind": "mcq",
+      "prompt": "ما الآلة الموسيقية التي تُلقَّب في التراث الموسيقي العربي بـ«سلطان الآلات»؟",
+      "category": "general",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "آلة وترية ذات رقبة قصيرة وصندوق على شكل نصف كمثرى.",
+        "عزف عليها زرياب وطوّرها بإضافة وتر خامس."
+      ],
+      "explanation": "العود من أقدم الآلات الوترية العربية وأكثرها حضورًا، ولذلك لُقب بسلطان الآلات.",
+      "status": "published",
+      "options": [
+        "العود",
+        "الناي",
+        "القانون",
+        "الرِّق"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_gen_005",
+      "kind": "number",
+      "prompt": "كم عدد ألوان قوس قزح وفق التقسيم الشائع؟",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "العدد نفسه لأيام الأسبوع.",
+        "أحمر، برتقالي، أصفر، أخضر، أزرق، نيلي..."
+      ],
+      "explanation": "التقسيم الشائع لألوان قوس قزح سبعة: الأحمر والبرتقالي والأصفر والأخضر والأزرق والنيلي والبنفسجي.",
+      "status": "published",
+      "answer": 7
+    },
+    {
+      "id": "c_gen_006",
+      "kind": "mcq",
+      "prompt": "ما الكوكب الملقب بـ«الكوكب الأحمر»؟",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "هو الكوكب الرابع من الشمس.",
+        "لونه ناتج عن أكاسيد الحديد في تربته."
+      ],
+      "explanation": "يُلقب المريخ بالكوكب الأحمر بسبب أكسيد الحديد المنتشر على سطحه.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "NASA — Mars",
+          "url": "https://science.nasa.gov/mars/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "الزهرة",
+        "المشتري",
+        "المريخ",
+        "عطارد"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_gen_007",
+      "kind": "text",
+      "prompt": "ما اسم صغير الأسد في اللغة العربية؟",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "من أسماء الأشبال في الكشافة.",
+        "يبدأ بحرف الشين."
+      ],
+      "explanation": "صغير الأسد يُسمّى «شِبلًا» وجمعه أشبال.",
+      "status": "published",
+      "answer": "شبل",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_gen_008",
+      "kind": "truefalse",
+      "prompt": "الساعة الواحدة تساوي 3600 ثانية.",
+      "category": "general",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الساعة 60 دقيقة.",
+        "كل دقيقة 60 ثانية."
+      ],
+      "explanation": "60 دقيقة × 60 ثانية = 3600 ثانية.",
+      "status": "published",
+      "answer": true
+    },
+    {
+      "id": "c_his_001",
+      "kind": "mcq",
+      "prompt": "في أي بلد تقع مدينة البتراء الأثرية المنحوتة في الصخر؟",
+      "category": "history",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "كانت عاصمة مملكة الأنباط.",
+        "تقع في جنوب بلد عاصمته عمّان."
+      ],
+      "explanation": "البتراء في جنوب الأردن، عاصمة الأنباط القديمة، ومدرجة في قائمة التراث العالمي لليونسكو.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "UNESCO — Petra",
+          "url": "https://whc.unesco.org/en/list/326"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "الأردن",
+        "سوريا",
+        "العراق",
+        "مصر"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_his_002",
+      "kind": "number",
+      "prompt": "في أي عام ميلادي فُتحت القسطنطينية على يد السلطان العثماني محمد الفاتح؟",
+      "category": "history",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "في منتصف القرن الخامس عشر الميلادي.",
+        "العام يبدأ بـ 145..."
+      ],
+      "explanation": "فُتحت القسطنطينية عام 1453م وانتهت بذلك الإمبراطورية البيزنطية.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Fall of Constantinople",
+          "url": "https://www.britannica.com/event/Fall-of-Constantinople-1453"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 1453
+    },
+    {
+      "id": "c_his_003",
+      "kind": "text",
+      "prompt": "ما اسم الملك البابلي الذي اشتهر بشريعته المنقوشة على مسلّة حجرية؟",
+      "category": "history",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "حكم بابل في القرن الثامن عشر قبل الميلاد.",
+        "يبدأ اسمه بحرف الحاء."
+      ],
+      "explanation": "شريعة حمورابي من أقدم القوانين المكتوبة، ومسلتها محفوظة في متحف اللوفر.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Hammurabi",
+          "url": "https://www.britannica.com/biography/Hammurabi"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "حمورابي",
+      "match": {
+        "foldYa": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_his_004",
+      "kind": "mcq",
+      "prompt": "ما المملكة اليمنية القديمة التي ارتبط اسمها ببناء سد مأرب؟",
+      "category": "history",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "ذُكرت ملكتها في القرآن الكريم.",
+        "عاصمتها مأرب."
+      ],
+      "explanation": "سد مأرب من أعظم منشآت مملكة سبأ في اليمن القديم.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Sabaʾ",
+          "url": "https://www.britannica.com/place/Saba-ancient-kingdom-Arabia"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "مملكة تدمر",
+        "مملكة سبأ",
+        "الدولة الآشورية",
+        "مملكة الأنباط"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "c_his_005",
+      "kind": "mcq",
+      "prompt": "ما المدينة التي أسسها الخليفة أبو جعفر المنصور عاصمة للدولة العباسية؟",
+      "category": "history",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "عُرفت باسم «مدينة السلام».",
+        "تقع على نهر دجلة."
+      ],
+      "explanation": "أسس المنصور بغداد عام 762م تقريبًا وجعلها عاصمة للعباسيين.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Baghdad",
+          "url": "https://www.britannica.com/place/Baghdad"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "دمشق",
+        "بغداد",
+        "القاهرة",
+        "قرطبة"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "c_his_006",
+      "kind": "number",
+      "prompt": "في أي سنة ميلادية كانت الهجرة النبوية التي بدأ بها التقويم الهجري؟",
+      "category": "history",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "في القرن السابع الميلادي.",
+        "العدد بين 620 و625."
+      ],
+      "explanation": "كانت الهجرة النبوية من مكة إلى المدينة سنة 622م، واعتُمدت بداية للتقويم الهجري في عهد عمر بن الخطاب.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Hijrah",
+          "url": "https://www.britannica.com/topic/Hijrah-Islam"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 622
+    },
+    {
+      "id": "c_his_007",
+      "kind": "text",
+      "prompt": "من القائد المسلم الذي انتصر في معركة حطين عام 1187م؟",
+      "category": "history",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "أسس الدولة الأيوبية.",
+        "استعاد بيت المقدس بعد المعركة."
+      ],
+      "explanation": "انتصر صلاح الدين الأيوبي في حطين عام 1187م ثم استعاد القدس في العام نفسه.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Battle of Ḥaṭṭīn",
+          "url": "https://www.britannica.com/event/Battle-of-Hattin"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "صلاح الدين الأيوبي",
+      "acceptedAnswers": [
+        "صلاح الدين",
+        "صلاح الدين يوسف بن أيوب"
+      ],
+      "match": {
+        "foldAlef": true,
+        "foldYa": true
+      }
+    },
+    {
+      "id": "c_his_008",
+      "kind": "truefalse",
+      "prompt": "تقع قصور الحمراء في مدينة غرناطة الأندلسية.",
+      "category": "history",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "آخر ممالك المسلمين في الأندلس.",
+        "بناها بنو نصر."
+      ],
+      "explanation": "قصر الحمراء في غرناطة من روائع العمارة الإسلامية، ومدرج في قائمة التراث العالمي.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "UNESCO — Alhambra, Generalife and Albayzín, Granada",
+          "url": "https://whc.unesco.org/en/list/314"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": true
+    },
+    {
+      "id": "c_geo_001",
+      "kind": "text",
+      "prompt": "ما عاصمة الجمهورية اليمنية؟",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "من أقدم المدن المأهولة في العالم.",
+        "تشتهر بمدينتها القديمة وبيوتها المزخرفة."
+      ],
+      "explanation": "صنعاء عاصمة اليمن، ومدينتها القديمة مدرجة في قائمة التراث العالمي.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "UNESCO — Old City of Sana'a",
+          "url": "https://whc.unesco.org/en/list/385"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "صنعاء",
+      "match": {
+        "foldAlef": true,
+        "foldHamzaSeats": true
+      }
+    },
+    {
+      "id": "c_geo_002",
+      "kind": "mcq",
+      "prompt": "ما عاصمة المملكة المغربية؟",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "ليست أكبر مدن المغرب.",
+        "تقع على ساحل الأطلسي عند مصب نهر أبي رقراق."
+      ],
+      "explanation": "الرباط عاصمة المغرب، أما الدار البيضاء فهي أكبر مدنه.",
+      "status": "published",
+      "options": [
+        "الدار البيضاء",
+        "مراكش",
+        "الرباط",
+        "فاس"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_geo_003",
+      "kind": "text",
+      "prompt": "ما عاصمة السودان؟",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "عند ملتقى النيلين الأزرق والأبيض.",
+        "تبدأ بـ«ال» ثم حرف الخاء."
+      ],
+      "explanation": "الخرطوم عاصمة السودان، وتقع عند التقاء النيل الأزرق بالنيل الأبيض.",
+      "status": "published",
+      "answer": "الخرطوم",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_geo_004",
+      "kind": "mcq",
+      "prompt": "ما عاصمة سلطنة عُمان؟",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "مدينة ساحلية على خليج عُمان.",
+        "اسمها من ثلاثة أحرف بعد الميم."
+      ],
+      "explanation": "مسقط عاصمة سلطنة عمان، وصلالة أكبر مدن محافظة ظفار.",
+      "status": "published",
+      "options": [
+        "مسقط",
+        "صلالة",
+        "نزوى",
+        "صحار"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_geo_005",
+      "kind": "mcq",
+      "prompt": "ما أكبر محيطات العالم مساحة؟",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يقع بين آسيا والأمريكتين.",
+        "يُسمّى أيضًا «الباسيفيكي»."
+      ],
+      "explanation": "المحيط الهادئ أكبر المحيطات وأعمقها.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "NOAA — Largest ocean",
+          "url": "https://oceanservice.noaa.gov/facts/biggestocean.html"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "المحيط الأطلسي",
+        "المحيط المتجمد الشمالي",
+        "المحيط الهندي",
+        "المحيط الهادئ"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": "c_geo_006",
+      "kind": "mcq",
+      "prompt": "ما أكبر قارات العالم مساحة؟",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "فيها أعلى قمة في العالم.",
+        "تضم الصين والهند."
+      ],
+      "explanation": "آسيا أكبر القارات مساحة وسكانًا.",
+      "status": "published",
+      "options": [
+        "أمريكا الشمالية",
+        "أوروبا",
+        "آسيا",
+        "إفريقيا"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_geo_007",
+      "kind": "text",
+      "prompt": "ما المضيق الذي يصل البحر الأحمر بخليج عدن؟",
+      "category": "geography",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "يقع بين اليمن وجيبوتي.",
+        "اسمه يبدأ بكلمة «باب»."
+      ],
+      "explanation": "مضيق باب المندب يفصل شبه الجزيرة العربية عن القرن الإفريقي.",
+      "status": "published",
+      "answer": "باب المندب",
+      "acceptedAnswers": [
+        "مضيق باب المندب"
+      ],
+      "match": {
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_geo_008",
+      "kind": "truefalse",
+      "prompt": "تقع جزيرة سقطرى ضمن أراضي اليمن.",
+      "category": "geography",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "مشهورة بشجرة دم الأخوين.",
+        "تقع في بحر العرب."
+      ],
+      "explanation": "أرخبيل سقطرى يمني، ومدرج في قائمة التراث العالمي لتنوعه الحيوي الفريد.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "UNESCO — Socotra Archipelago",
+          "url": "https://whc.unesco.org/en/list/1263"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": true
+    },
+    {
+      "id": "c_sci_001",
+      "kind": "mcq",
+      "prompt": "ما الغاز الذي تمتصه النباتات من الهواء لتصنع غذاءها في عملية البناء الضوئي؟",
+      "category": "science",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "هو الغاز نفسه الذي نخرجه في الزفير.",
+        "صيغته الكيميائية CO2."
+      ],
+      "explanation": "تمتص النباتات ثاني أكسيد الكربون وتطلق الأكسجين أثناء البناء الضوئي.",
+      "status": "published",
+      "options": [
+        "النيتروجين",
+        "الهيليوم",
+        "ثاني أكسيد الكربون",
+        "الأكسجين"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_sci_002",
+      "kind": "number",
+      "prompt": "عند أي درجة حرارة مئوية يغلي الماء النقي عند مستوى سطح البحر؟",
+      "category": "science",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "عدد من ثلاث خانات.",
+        "هي ضعف 50."
+      ],
+      "explanation": "يغلي الماء النقي عند 100 درجة مئوية تحت الضغط الجوي المعتاد.",
+      "status": "published",
+      "answer": 100,
+      "unit": "درجة"
+    },
+    {
+      "id": "c_sci_003",
+      "kind": "text",
+      "prompt": "ما العضو المسؤول عن ضخ الدم في جسم الإنسان؟",
+      "category": "science",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يقع في الصدر مائلًا إلى اليسار.",
+        "عضو عضلي من أربع حجرات."
+      ],
+      "explanation": "القلب عضلة تضخ الدم عبر الأوعية الدموية إلى أنحاء الجسم.",
+      "status": "published",
+      "answer": "القلب",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_sci_004",
+      "kind": "truefalse",
+      "prompt": "ينتقل الصوت في الفراغ الخالي تمامًا من الهواء.",
+      "category": "science",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "الصوت اهتزازات تحتاج إلى وسط ناقل.",
+        "لماذا لا نسمع أصوات انفجارات النجوم؟"
+      ],
+      "explanation": "الصوت موجة ميكانيكية تحتاج إلى وسط (غاز أو سائل أو صلب)، لذلك لا ينتقل في الفراغ.",
+      "status": "published",
+      "answer": false
+    },
+    {
+      "id": "c_sci_005",
+      "kind": "mcq",
+      "prompt": "ما الرمز الكيميائي لعنصر الذهب؟",
+      "category": "science",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "الرمز مأخوذ من اسمه اللاتيني.",
+        "الاسم اللاتيني Aurum."
+      ],
+      "explanation": "رمز الذهب Au من الكلمة اللاتينية Aurum، أما Ag فهو رمز الفضة.",
+      "status": "published",
+      "options": [
+        "Au",
+        "Gd",
+        "Go",
+        "Ag"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_sci_006",
+      "kind": "number",
+      "prompt": "كم عدد كواكب المجموعة الشمسية المعتمدة حاليًا؟",
+      "category": "science",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أُخرج بلوتو من قائمة الكواكب عام 2006.",
+        "الأرض هي الكوكب الثالث منها."
+      ],
+      "explanation": "تضم المجموعة الشمسية ثمانية كواكب منذ أن صُنف بلوتو كوكبًا قزمًا عام 2006.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "NASA — Planets",
+          "url": "https://science.nasa.gov/solar-system/planets/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 8
+    },
+    {
+      "id": "c_sci_007",
+      "kind": "text",
+      "prompt": "ما أقرب كواكب المجموعة الشمسية إلى الشمس؟",
+      "category": "science",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أصغر الكواكب الثمانية.",
+        "يبدأ بحرف العين."
+      ],
+      "explanation": "عطارد أقرب الكواكب إلى الشمس وأصغرها.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "NASA — Mercury",
+          "url": "https://science.nasa.gov/mercury/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "عطارد",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_sci_008",
+      "kind": "mcq",
+      "prompt": "عندما يتجمد الماء، في أي حالة يصبح؟",
+      "category": "science",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الجليد مثال عليها.",
+        "عكس الحالة الغازية في التماسك."
+      ],
+      "explanation": "الماء المتجمد (الجليد) في الحالة الصلبة.",
+      "status": "published",
+      "options": [
+        "بلازما",
+        "غازية",
+        "صلبة",
+        "سائلة"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_rel_001",
+      "kind": "number",
+      "prompt": "كم عدد سور القرآن الكريم؟",
+      "category": "religion",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "آخر سورة في المصحف هي سورة الناس.",
+        "العدد أكثر من 110 وأقل من 120."
+      ],
+      "explanation": "عدد سور القرآن الكريم 114 سورة، أولها الفاتحة وآخرها الناس (رقم 114).",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Quran.com — سورة الناس (114)",
+          "url": "https://quran.com/114"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 114
+    },
+    {
+      "id": "c_rel_002",
+      "kind": "text",
+      "prompt": "ما أطول سورة في القرآن الكريم؟",
+      "category": "religion",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "هي السورة الثانية في ترتيب المصحف.",
+        "فيها آية الكرسي وآية الدَّين."
+      ],
+      "explanation": "سورة البقرة أطول سور القرآن الكريم، وعدد آياتها 286 آية.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Quran.com — سورة البقرة",
+          "url": "https://quran.com/2"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "البقرة",
+      "acceptedAnswers": [
+        "سورة البقرة"
+      ],
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_rel_003",
+      "kind": "number",
+      "prompt": "كم عدد آيات سورة الفاتحة؟",
+      "category": "religion",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تُسمّى «السبع المثاني».",
+        "عدد فردي أقل من 10."
+      ],
+      "explanation": "سورة الفاتحة سبع آيات.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Quran.com — سورة الفاتحة",
+          "url": "https://quran.com/1"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 7
+    },
+    {
+      "id": "c_rel_004",
+      "kind": "mcq",
+      "prompt": "ما السورة التي لا تبدأ بالبسملة في المصحف؟",
+      "category": "religion",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "هي السورة التاسعة في ترتيب المصحف.",
+        "من أسمائها «براءة»."
+      ],
+      "explanation": "سورة التوبة (براءة) هي السورة الوحيدة التي لا تبدأ بالبسملة.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Quran.com — سورة التوبة",
+          "url": "https://quran.com/9"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "يونس",
+        "الأنفال",
+        "التوبة",
+        "الكهف"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_rel_005",
+      "kind": "number",
+      "prompt": "كم عدد أركان الإسلام؟",
+      "category": "religion",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أولها الشهادتان.",
+        "عددها مثل عدد أصابع اليد الواحدة."
+      ],
+      "explanation": "أركان الإسلام خمسة كما في حديث «بُني الإسلام على خمس» في صحيح البخاري.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sunnah.com — صحيح البخاري 8",
+          "url": "https://sunnah.com/bukhari:8"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 5
+    },
+    {
+      "id": "c_rel_006",
+      "kind": "mcq",
+      "prompt": "ما الشهر الذي فُرض صيامه على المسلمين؟",
+      "category": "religion",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أُنزل فيه القرآن الكريم.",
+        "هو الشهر التاسع في التقويم الهجري."
+      ],
+      "explanation": "قال تعالى: «شَهْرُ رَمَضَانَ الَّذِي أُنزِلَ فِيهِ الْقُرْآنُ» (البقرة: 185).",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Quran.com — البقرة 185",
+          "url": "https://quran.com/2/185"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "شعبان",
+        "رمضان",
+        "شوال",
+        "محرم"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "c_rel_007",
+      "kind": "text",
+      "prompt": "ما اسم السورة العاشرة في المصحف، وهي تحمل اسم النبي الذي التقمه الحوت؟",
+      "category": "religion",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "يُلقب النبي بـ«ذي النون».",
+        "اسمه من أربعة أحرف."
+      ],
+      "explanation": "سورة يونس هي السورة العاشرة في ترتيب المصحف.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Quran.com — سورة يونس",
+          "url": "https://quran.com/10"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "يونس",
+      "acceptedAnswers": [
+        "سورة يونس"
+      ],
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_rel_008",
+      "kind": "number",
+      "prompt": "كم عدد الصلوات المفروضة في اليوم والليلة؟",
+      "category": "religion",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الفجر أولها.",
+        "العشاء آخرها."
+      ],
+      "explanation": "الصلوات المفروضة خمس: الفجر والظهر والعصر والمغرب والعشاء، كما في حديث طلحة بن عبيد الله في صحيح البخاري.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Sunnah.com — صحيح البخاري 46",
+          "url": "https://sunnah.com/bukhari:46"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 5
+    },
+    {
+      "id": "c_mat_001",
+      "kind": "number",
+      "prompt": "كم ناتج ٧ × ٨؟",
+      "category": "math",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "٧ × ٧ = ٤٩.",
+        "أضف ٧ إلى ٤٩."
+      ],
+      "explanation": "٧ × ٨ = ٥٦.",
+      "status": "published",
+      "answer": 56
+    },
+    {
+      "id": "c_mat_002",
+      "kind": "number",
+      "prompt": "اشترى سالم 3 أقلام سعر القلم 4 ريالات، ودفع 20 ريالًا. كم الباقي له؟",
+      "category": "math",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "احسب ثمن الأقلام أولًا.",
+        "ثمن الأقلام 12 ريالًا."
+      ],
+      "explanation": "3 × 4 = 12، و20 − 12 = 8 ريالات.",
+      "status": "published",
+      "answer": 8,
+      "unit": "ريالات"
+    },
+    {
+      "id": "c_mat_003",
+      "kind": "number",
+      "prompt": "ما نصف ربع العدد 64؟",
+      "category": "math",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "ربع 64 يساوي 16.",
+        "نصف 16؟"
+      ],
+      "explanation": "ربع 64 = 16، ونصف 16 = 8.",
+      "status": "published",
+      "answer": 8
+    },
+    {
+      "id": "c_mat_004",
+      "kind": "mcq",
+      "prompt": "أي الأعداد التالية عدد أولي؟",
+      "category": "math",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "العدد الأولي لا يقبل القسمة إلا على 1 وعلى نفسه.",
+        "21 و27 و33 تقبل القسمة على 3."
+      ],
+      "explanation": "17 عدد أولي، أما 21 = 3×7 و27 = 3×9 و33 = 3×11.",
+      "status": "published",
+      "options": [
+        "17",
+        "27",
+        "33",
+        "21"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_mat_005",
+      "kind": "number",
+      "prompt": "عدد موجب إذا ضربته في نفسه كان الناتج 144. ما هو؟",
+      "category": "math",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يُسمّى الجذر التربيعي لـ 144.",
+        "عدد الأشهر في السنة."
+      ],
+      "explanation": "12 × 12 = 144.",
+      "status": "published",
+      "answer": 12
+    },
+    {
+      "id": "c_mat_006",
+      "kind": "number",
+      "prompt": "مجموع ثلاثة أعداد صحيحة متتالية يساوي 30. ما أكبرها؟",
+      "category": "math",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "العدد الأوسط = المجموع ÷ 3.",
+        "العدد الأوسط 10."
+      ],
+      "explanation": "الأعداد 9 و10 و11، ومجموعها 30.",
+      "status": "published",
+      "answer": 11
+    },
+    {
+      "id": "c_mat_007",
+      "kind": "number",
+      "prompt": "عمر أحمد ضعف عمر أخيه، ومجموع عمريهما 18 سنة. كم عمر أحمد؟",
+      "category": "math",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "إذا كان عمر الأخ س فعمر أحمد 2س.",
+        "3س = 18."
+      ],
+      "explanation": "عمر الأخ 6 سنوات وعمر أحمد 12 سنة.",
+      "status": "published",
+      "answer": 12,
+      "unit": "سنة"
+    },
+    {
+      "id": "c_mat_008",
+      "kind": "number",
+      "prompt": "كم دقيقة في ساعتين ونصف؟",
+      "category": "math",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الساعة 60 دقيقة.",
+        "نصف الساعة 30 دقيقة."
+      ],
+      "explanation": "2 × 60 + 30 = 150 دقيقة.",
+      "status": "published",
+      "answer": 150,
+      "unit": "دقيقة"
+    },
+    {
+      "id": "c_ara_001",
+      "kind": "text",
+      "prompt": "ما جمع كلمة «كِتاب»؟",
+      "category": "arabic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "جمع تكسير من ثلاثة أحرف.",
+        "على وزن «فُعُل»."
+      ],
+      "explanation": "جمع «كتاب» هو «كُتُب».",
+      "status": "published",
+      "answer": "كتب",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_ara_002",
+      "kind": "text",
+      "prompt": "ما مفرد كلمة «أقلام»؟",
+      "category": "arabic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أداة للكتابة.",
+        "ثلاثة أحرف."
+      ],
+      "explanation": "مفرد «أقلام» هو «قلم».",
+      "status": "published",
+      "answer": "قلم",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_ara_003",
+      "kind": "text",
+      "prompt": "ما ضد كلمة «الصدق»؟",
+      "category": "arabic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "صفة مذمومة.",
+        "تبدأ بعد «ال» بحرف الكاف."
+      ],
+      "explanation": "ضد الصدق الكذب.",
+      "status": "published",
+      "answer": "الكذب",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_ara_004",
+      "kind": "number",
+      "prompt": "كم عدد حروف الهجاء في اللغة العربية وفق العدّ المشهور؟",
+      "category": "arabic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تبدأ بالألف وتنتهي بالياء.",
+        "العدد بين 25 و30."
+      ],
+      "explanation": "حروف الهجاء العربية 28 حرفًا وفق العدّ المشهور.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Arabic alphabet",
+          "url": "https://www.britannica.com/topic/Arabic-alphabet"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 28
+    },
+    {
+      "id": "c_ara_005",
+      "kind": "mcq",
+      "prompt": "في جملة «فاز الفريقُ»، ما إعراب كلمة «الفريقُ»؟",
+      "category": "arabic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "الجملة فعلية تبدأ بفعل.",
+        "من قام بالفعل؟"
+      ],
+      "explanation": "«الفريقُ» فاعل مرفوع وعلامة رفعه الضمة الظاهرة.",
+      "status": "published",
+      "options": [
+        "مبتدأ مرفوع",
+        "مفعول به منصوب",
+        "خبر مرفوع",
+        "فاعل مرفوع"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": "c_ara_006",
+      "kind": "mcq",
+      "prompt": "ما نوع الكلمة «في»؟",
+      "category": "arabic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "لا يظهر معناها إلا مع غيرها.",
+        "تجرّ الاسم الذي بعدها."
+      ],
+      "explanation": "«في» حرف جر يدل على الظرفية.",
+      "status": "published",
+      "options": [
+        "فعل أمر",
+        "فعل ماضٍ",
+        "اسم",
+        "حرف جر"
+      ],
+      "correctIndex": 3
+    },
+    {
+      "id": "c_ara_007",
+      "kind": "order",
+      "prompt": "رتّب الحروف لتكوين اسم مكان يتعلم فيه الطلاب.",
+      "category": "arabic",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تبدأ بحرف الميم.",
+        "تنتهي بتاء مربوطة."
+      ],
+      "explanation": "الكلمة هي «مدرسة».",
+      "status": "published",
+      "unit": "letters",
+      "tiles": [
+        "ة",
+        "س",
+        "م",
+        "د",
+        "ر"
+      ],
+      "answer": "مدرسة"
+    },
+    {
+      "id": "c_ara_008",
+      "kind": "text",
+      "prompt": "ما مرادف كلمة «الغيث»؟",
+      "category": "arabic",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "ينزل من السحاب.",
+        "تبدأ بعد «ال» بحرف الميم."
+      ],
+      "explanation": "الغيث هو المطر، خاصة المطر النافع.",
+      "status": "published",
+      "answer": "المطر",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_prv_001",
+      "kind": "text",
+      "prompt": "أكمل المثل: «مَن جَدَّ ...»",
+      "category": "proverbs",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "الجزاء من جنس العمل.",
+        "كلمة من ثلاثة أحرف تبدأ بالواو."
+      ],
+      "explanation": "«مَن جدّ وجد، ومَن زرع حصد».",
+      "status": "published",
+      "answer": "وجد",
+      "acceptedAnswers": [
+        "وجد ومن زرع حصد"
+      ]
+    },
+    {
+      "id": "c_prv_002",
+      "kind": "text",
+      "prompt": "أكمل الحكمة: «الوقتُ كالسيف، إن لم تقطعه ...»",
+      "category": "proverbs",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "السيف يقطع.",
+        "الكلمة من الفعل نفسه «قطع»."
+      ],
+      "explanation": "«الوقت كالسيف إن لم تقطعه قطعك»: حثّ على اغتنام الوقت.",
+      "status": "published",
+      "answer": "قطعك"
+    },
+    {
+      "id": "c_prv_003",
+      "kind": "text",
+      "prompt": "أكمل المثل: «رُبَّ أخٍ لك لم تلده ...»",
+      "category": "proverbs",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "من ولدتك؟",
+        "كلمة من ثلاثة أحرف."
+      ],
+      "explanation": "يُقال في الصديق الوفي الذي يكون كالأخ.",
+      "status": "published",
+      "answer": "أمك",
+      "match": {
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_prv_004",
+      "kind": "order",
+      "prompt": "رتّب الكلمات لتكوين حكمة عن الأناة.",
+      "category": "proverbs",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تبدأ بحرف جر.",
+        "عكسها: في العجلة الندامة."
+      ],
+      "explanation": "«في التأني السلامة، وفي العجلة الندامة».",
+      "status": "published",
+      "unit": "words",
+      "tiles": [
+        "التأني",
+        "في",
+        "السلامة"
+      ],
+      "answer": "في التأني السلامة"
+    },
+    {
+      "id": "c_prv_005",
+      "kind": "mcq",
+      "prompt": "ما المقصود بالمثل «يداك أوكتا وفوك نفخ»؟",
+      "category": "proverbs",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "«أوكتا» أي ربطتا فم القربة.",
+        "صاحب الفعل هو من وقع في العاقبة."
+      ],
+      "explanation": "يُضرب لمن يقع في عاقبة فعله بنفسه.",
+      "status": "published",
+      "options": [
+        "أنت المسؤول عمّا أصابك",
+        "الحث على التعاون",
+        "مدح الكرم",
+        "الصبر على الشدائد"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_prv_006",
+      "kind": "mcq",
+      "prompt": "متى يُقال المثل «سبق السيفُ العَذَل»؟",
+      "category": "proverbs",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "«العذل» هو اللوم.",
+        "الأمر قد وقع ولم يعد اللوم مفيدًا."
+      ],
+      "explanation": "يُضرب للأمر الذي وقع فلا ينفع فيه اللوم.",
+      "status": "published",
+      "options": [
+        "عند الحث على الشجاعة",
+        "عند مدح السرعة",
+        "عندما يفوت أوان اللوم بعد وقوع الأمر",
+        "عند الاعتذار عن خطأ صغير"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_prv_007",
+      "kind": "text",
+      "prompt": "أكمل: «إذا كان الكلام من فضة فالسكوت من ...»",
+      "category": "proverbs",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "معدن أثمن من الفضة.",
+        "ثلاثة أحرف."
+      ],
+      "explanation": "حكمة في فضل الصمت في موضعه.",
+      "status": "published",
+      "answer": "ذهب",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_prv_008",
+      "kind": "order",
+      "prompt": "رتّب الكلمات لتكوين مثل عن الصبر.",
+      "category": "proverbs",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "يبدأ بكلمة «الصبر».",
+        "آخر كلمة تعني زوال الهم."
+      ],
+      "explanation": "«الصبر مفتاح الفرج».",
+      "status": "published",
+      "unit": "words",
+      "tiles": [
+        "مفتاح",
+        "الصبر",
+        "الفرج"
+      ],
+      "answer": "الصبر مفتاح الفرج"
+    },
+    {
+      "id": "c_spo_001",
+      "kind": "number",
+      "prompt": "كم عدد لاعبي الفريق الواحد داخل ملعب كرة القدم عند بدء المباراة (بمن فيهم الحارس)؟",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أكثر من 10.",
+        "عدد فردي."
+      ],
+      "explanation": "تنص قوانين اللعبة على أن يتكون الفريق من 11 لاعبًا كحد أقصى أحدهم حارس المرمى.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "IFAB — Law 3: The Players",
+          "url": "https://www.theifab.com/laws/latest/the-players/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 11
+    },
+    {
+      "id": "c_spo_002",
+      "kind": "number",
+      "prompt": "كم دقيقة مدة الشوط الواحد في مباراة كرة القدم الرسمية؟",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "المباراة شوطان.",
+        "مدة المباراة 90 دقيقة."
+      ],
+      "explanation": "تتكون المباراة من شوطين متساويين مدة كل منهما 45 دقيقة.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "IFAB — Law 7: The Duration of the Match",
+          "url": "https://www.theifab.com/laws/latest/the-duration-of-the-match/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 45,
+      "unit": "دقيقة"
+    },
+    {
+      "id": "c_spo_003",
+      "kind": "mcq",
+      "prompt": "كم عدد لاعبي فريق كرة السلة داخل الملعب في وقت واحد؟",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أقل من فريق الكرة الطائرة.",
+        "عدد أصابع اليد."
+      ],
+      "explanation": "يلعب كل فريق في كرة السلة بخمسة لاعبين داخل الملعب.",
+      "status": "published",
+      "options": [
+        "6",
+        "5",
+        "7",
+        "11"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "c_spo_004",
+      "kind": "truefalse",
+      "prompt": "يتكون فريق الكرة الطائرة داخل الملعب من 6 لاعبين.",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "ثلاثة في الأمام وثلاثة في الخلف.",
+        "العدد زوجي."
+      ],
+      "explanation": "يلعب فريق الكرة الطائرة بستة لاعبين داخل الملعب.",
+      "status": "published",
+      "answer": true
+    },
+    {
+      "id": "c_spo_005",
+      "kind": "number",
+      "prompt": "كم عدد الحلقات المتداخلة في شعار الألعاب الأولمبية؟",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "ترمز إلى القارات المأهولة.",
+        "أقل من 6."
+      ],
+      "explanation": "الحلقات الأولمبية خمس متداخلة ترمز إلى اتحاد القارات.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Olympics.com — Olympic rings",
+          "url": "https://www.olympics.com/ioc/olympic-rings"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 5
+    },
+    {
+      "id": "c_spo_006",
+      "kind": "text",
+      "prompt": "في أي مدينة أُقيمت أول دورة ألعاب أولمبية حديثة عام 1896؟",
+      "category": "sports",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "عاصمة بلد مهد الألعاب القديمة.",
+        "عاصمة اليونان."
+      ],
+      "explanation": "أُقيمت أول ألعاب أولمبية حديثة في أثينا عام 1896.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Olympics.com — Athens 1896",
+          "url": "https://www.olympics.com/en/olympic-games/athens-1896"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "أثينا",
+      "match": {
+        "ignoreDefiniteArticle": true,
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_spo_007",
+      "kind": "mcq",
+      "prompt": "ما الدولة التي استضافت بطولة كأس العالم لكرة القدم 2022؟",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أول دولة عربية تستضيف البطولة.",
+        "عاصمتها الدوحة."
+      ],
+      "explanation": "استضافت قطر كأس العالم 2022، وهي أول نسخة تُقام في دولة عربية.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — 2022 World Cup",
+          "url": "https://www.britannica.com/sports/2022-FIFA-World-Cup"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "الإمارات",
+        "السعودية",
+        "قطر",
+        "المغرب"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_spo_008",
+      "kind": "mcq",
+      "prompt": "في أي لعبة تُستخدم عبارة «كش ملك»؟",
+      "category": "sports",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "لعبة ذهنية على رقعة.",
+        "فيها ملك ووزير وفيل وحصان."
+      ],
+      "explanation": "«كش ملك» تُقال في الشطرنج عند تهديد الملك.",
+      "status": "published",
+      "options": [
+        "الشطرنج",
+        "البلياردو",
+        "الطاولة",
+        "الدومينو"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": "c_tec_001",
+      "kind": "number",
+      "prompt": "كم «بِت» في «البايت» الواحد؟",
+      "category": "technology",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "عدد زوجي.",
+        "2 × 2 × 2."
+      ],
+      "explanation": "البايت يتكون من 8 بتات.",
+      "status": "published",
+      "answer": 8
+    },
+    {
+      "id": "c_tec_002",
+      "kind": "mcq",
+      "prompt": "إلى ماذا يشير الاختصار CPU في الحاسوب؟",
+      "category": "technology",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "تُسمّى «عقل الحاسوب».",
+        "Central Processing Unit."
+      ],
+      "explanation": "CPU اختصار Central Processing Unit أي وحدة المعالجة المركزية.",
+      "status": "published",
+      "options": [
+        "وحدة التخزين الدائم",
+        "ذاكرة الوصول العشوائي",
+        "وحدة المعالجة المركزية",
+        "بطاقة الرسوميات"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_tec_003",
+      "kind": "text",
+      "prompt": "من العالِم البريطاني الذي اقترح الشبكة العنكبوتية العالمية (الويب) عام 1989 أثناء عمله في مختبر سيرن؟",
+      "category": "technology",
+      "difficulty": "hard",
+      "points": 25,
+      "hints": [
+        "اسمه الأول «تيم».",
+        "اسم عائلته مركب من كلمتين."
+      ],
+      "explanation": "اقترح تيم بيرنرز لي الويب عام 1989 في سيرن.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "CERN — A short history of the Web",
+          "url": "https://home.cern/science/computing/the-birth-of-the-web/short-history-web/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "تيم بيرنرز لي",
+      "acceptedAnswers": [
+        "تيم برنرز لي",
+        "بيرنرز لي",
+        "برنرز لي"
+      ]
+    },
+    {
+      "id": "c_tec_004",
+      "kind": "truefalse",
+      "prompt": "يعتمد الحاسوب داخليًا على النظام الثنائي (0 و1) لتمثيل البيانات.",
+      "category": "technology",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "النظام الثنائي رقمان فقط.",
+        "كل بت إما 0 أو 1."
+      ],
+      "explanation": "تُمثل البيانات في الحاسوب بالنظام الثنائي.",
+      "status": "published",
+      "answer": true
+    },
+    {
+      "id": "c_tec_005",
+      "kind": "mcq",
+      "prompt": "من المخترع الأمريكي الذي طوّر عام 1879 مصباحًا كهربائيًا متوهجًا عمليًا؟",
+      "category": "technology",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "أسس مختبر منلو بارك.",
+        "نُسب إليه أيضًا الفونوغراف."
+      ],
+      "explanation": "طوّر توماس إديسون مصباحًا متوهجًا عمليًا عام 1879.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Thomas Edison",
+          "url": "https://www.britannica.com/biography/Thomas-Edison"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "هنري فورد",
+        "ألكسندر غراهام بيل",
+        "توماس إديسون",
+        "نيكولا تسلا"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": "c_tec_006",
+      "kind": "text",
+      "prompt": "من العالِم المسلم مؤلف كتاب «المناظر» في علم البصريات؟",
+      "category": "technology",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "اسمه الحسن.",
+        "عاش في البصرة والقاهرة."
+      ],
+      "explanation": "الحسن بن الهيثم صاحب «كتاب المناظر»، من أهم مؤسسي علم البصريات.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Ibn al-Haytham",
+          "url": "https://www.britannica.com/biography/Ibn-al-Haytham"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": "ابن الهيثم",
+      "acceptedAnswers": [
+        "الحسن بن الهيثم",
+        "الحسن ابن الهيثم"
+      ],
+      "match": {
+        "foldAlef": true
+      }
+    },
+    {
+      "id": "c_tec_007",
+      "kind": "mcq",
+      "prompt": "ما الذي نجح الأخوان رايت في تحليقه لأول مرة عام 1903؟",
+      "category": "technology",
+      "difficulty": "easy",
+      "points": 10,
+      "hints": [
+        "أثقل من الهواء.",
+        "لها جناحان ومحرك."
+      ],
+      "explanation": "حلّق الأخوان رايت بأول طائرة يتحكم بها محرك عام 1903.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "Britannica — Wright brothers",
+          "url": "https://www.britannica.com/biography/Wright-brothers"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "options": [
+        "مروحية",
+        "طائرة بمحرك",
+        "صاروخ",
+        "منطاد"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": "c_tec_008",
+      "kind": "number",
+      "prompt": "في أي عام هبط الإنسان لأول مرة على سطح القمر؟",
+      "category": "technology",
+      "difficulty": "medium",
+      "points": 15,
+      "hints": [
+        "في مهمة أبولو 11.",
+        "في أواخر الستينيات."
+      ],
+      "explanation": "هبطت مهمة أبولو 11 على القمر في يوليو 1969.",
+      "status": "published",
+      "sources": [
+        {
+          "title": "NASA — Apollo 11",
+          "url": "https://www.nasa.gov/mission/apollo-11/"
+        }
+      ],
+      "requiresSource": true,
+      "lastReviewed": "2026-10-20",
+      "answer": 1969
+    }
+  ]
+}

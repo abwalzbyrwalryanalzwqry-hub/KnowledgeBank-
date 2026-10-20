@@ -60,13 +60,24 @@ export const Header: React.FC<HeaderProps> = ({
           <button
             onClick={() => {
               sound.playClick();
+              onSelectTab('horizon');
+            }}
+            className={`whitespace-nowrap shrink-0 transition-colors py-1 hover:text-white cursor-pointer ${
+              activeTab === 'horizon' ? 'text-cyan-400 font-semibold border-b-2 border-cyan-400' : 'text-slate-400'
+            }`}
+          >
+            عوالم الأفق
+          </button>
+          <button
+            onClick={() => {
+              sound.playClick();
               onSelectTab('stages');
             }}
             className={`whitespace-nowrap shrink-0 transition-colors py-1 hover:text-white cursor-pointer ${
               activeTab === 'stages' ? 'text-cyan-400 font-semibold border-b-2 border-cyan-400' : 'text-slate-400'
             }`}
           >
-            المراحل والمستويات
+            الرحلة الكلاسيكية
           </button>
           <button
             onClick={() => {

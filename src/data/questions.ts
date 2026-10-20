@@ -1,13 +1,13 @@
 import { Question, Stage, EraId } from '../types/game';
 
-export const QUESTIONS_DATABASE: Question[] = [
+const RAW_QUESTIONS: Question[] = [
   // --- 1. الحضارة والعلوم الإسلامية (Islamic Civilization & Sciences) ---
   {
     id: 'isl_01',
     category: 'islamic',
     era: 'islamic_golden',
     difficulty: 'easy',
-    question: 'ما هي أول جامعة تأسست في العالم وما زالت تمنح الشهادات العلمية حتى اليوم؟',
+    question: 'ما هي أقدم جامعة قائمة في العالم ما زالت تمنح الشهادات العلمية حتى اليوم، وفق اليونسكو وموسوعة غينيس؟',
     options: ['جامعة القرويين بفاس', 'جامعة الأزهر بالقاهرة', 'جامعة بولونيا بإيطاليا', 'جامعة السوربون بباريس'],
     correctIndex: 0,
     explanation: 'أسستها السيدة فاطمة الفهرية عام 859م في مدينة فاس بالمغرب، وتعدها اليونسكو وموسوعة غينيس أقدم مؤسسة للتعليم العالي المستمر في العالم.',
@@ -40,7 +40,7 @@ export const QUESTIONS_DATABASE: Question[] = [
     category: 'islamic',
     era: 'islamic_golden',
     difficulty: 'expert',
-    question: 'من هو العالم الأندلسي الذي سبق عصر النهضة الأوروبية برسم تشريح دقيق للدورة الدموية الصغرى؟',
+    question: 'من هو العالم العربي الدمشقي الذي سبق عصر النهضة الأوروبية بوصف دقيق للدورة الدموية الصغرى (الرئوية)؟',
     options: ['ابن النفيس', 'ابن زهر', 'الزهراوي', 'ابن رشد'],
     correctIndex: 0,
     explanation: 'ابن النفيس الدمشقي القاهري كان أول من اكتشف ووصف الدورة الدموية الرئوية (الصغرى) في كتابه "شرح تشريح القانون" قبل ويليام هارفي بقرون.',
@@ -78,7 +78,7 @@ export const QUESTIONS_DATABASE: Question[] = [
     question: 'ما هي الحضارة التي ابتكرت أقدم كتابة أبجدية صوتية صريحة ونشرتها عبر البحر المتوسط؟',
     options: ['الحضارة الفينيقية', 'الحضارة المسمارية السومرية', 'الحضارة المينوية', 'الحضارة السبئية'],
     correctIndex: 0,
-    explanation: 'ابتكر الفينيقيون في سواحل الشام (أوغاريت وجبيل) الأبجدية الفينيقية المكوّنة من 22 حرفاً صوتياً، والتي انحدرت منها الأبجديات الإغريقية واللاتينية والآرامية.',
+    explanation: 'ابتكر الفينيقيون في سواحل الشام (مثل جبيل) الأبجدية الفينيقية المكوّنة من 22 حرفاً صوتياً، والتي انحدرت منها الأبجديات الإغريقية واللاتينية والآرامية.',
     points: 150,
   },
   {
@@ -113,7 +113,7 @@ export const QUESTIONS_DATABASE: Question[] = [
     question: 'ما هو أطول نهر في العالم؟',
     options: ['نهر النيل', 'نهر الأمازون', 'نهر اليانغتسي', 'نهر المسيسيبي'],
     correctIndex: 0,
-    explanation: 'نهر النيل يمتد بطول يقارب 6,650 كم عابراً 11 دولة إفريقية تعرف بحوض النيل، ويصب في البحر الأبيض المتوسط.',
+    explanation: 'وفق أشهر القياسات، يمتد نهر النيل بطول يقارب 6,650 كم (مع خلاف علمي قائم حول طول نهر الأمازون) عابراً 11 دولة إفريقية تعرف بحوض النيل، ويصب في البحر الأبيض المتوسط.',
     points: 100,
   },
   {
@@ -235,7 +235,7 @@ export const QUESTIONS_DATABASE: Question[] = [
     category: 'industry',
     era: 'future_ai',
     difficulty: 'expert',
-    question: 'ما هي الشركة التايوانية المصنعة لأكثر من 90% من الشرائح المتقدمة فائقة الصغر (أشباه الموصلات) في العالم؟',
+    question: 'ما هي الشركة التايوانية الأكبر عالميًا في تصنيع الرقائق الإلكترونية المتقدمة (أشباه الموصلات) لصالح الشركات الأخرى؟',
     options: ['تي إس إم سي (TSMC)', 'إنتل (Intel)', 'سامسونج (Samsung)', 'كوالكوم (Qualcomm)'],
     correctIndex: 0,
     explanation: 'شركة تايوان لصناعة أشباه الموصلات (TSMC) هي الرائدة المطلقة عالمياً في تصنيع رقائق السيليكون الدقيقة (بتقنيات 3 نانومتر و 2 نانومتر).',
@@ -259,7 +259,7 @@ export const QUESTIONS_DATABASE: Question[] = [
     category: 'sports',
     era: 'modern_digital',
     difficulty: 'medium',
-    question: 'من هو العداء الأسطوري حامل الرقم القياسي العالمي لسباق 100 متر و 200 متر بزمن 9.58 ثانية؟',
+    question: 'من هو العداء الأسطوري حامل الرقم القياسي العالمي لسباق 100 متر بزمن 9.58 ثانية؟',
     options: ['يوسين بولت (Usain Bolt)', 'كارل لويس', 'تايسون غاي', 'مويفارات سيزاي'],
     correctIndex: 0,
     explanation: 'حقق العداء الجامايكي يوسين بولت هذا الرقم التاريخي الخارق في بطولة العالم لألعاب القوى ببرلين عام 2009.',
@@ -354,7 +354,7 @@ export const QUESTIONS_DATABASE: Question[] = [
     question: 'ما هو المعلم التاريخي اليمني القديم الشهير الذي كان يروي أرض الجنتين ويعد أعظم هندسة مائية في شبه الجزيرة؟',
     options: ['سد مأرب العظيم', 'سد الخنق', 'صهاريج عدن', 'قصر غمدان'],
     correctIndex: 0,
-    explanation: 'بناه السبئيون في القرن الثامن قبل الميلاد لتجميع مياه السيول الموسيقية، وكان انهياره علامة فاصلة في تفرق القبائل العربية القحطانية.',
+    explanation: 'بناه السبئيون في القرن الثامن قبل الميلاد لتجميع مياه السيول الموسمية، وكان انهياره علامة فاصلة في تفرق القبائل العربية القحطانية.',
     points: 150,
   },
   {
@@ -483,6 +483,33 @@ export const QUESTIONS_DATABASE: Question[] = [
     points: 150,
   },
 ];
+
+/**
+ * إصلاح: كانت الإجابة الصحيحة في كل الأسئلة هي الخيار الأول (correctIndex = 0).
+ * نخلط الخيارات بترتيب ثابت مشتق من معرف السؤال (لا يتغير بين الجلسات)، ونحدّث correctIndex.
+ */
+function seededOrder(seed: string, n: number): number[] {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  const idx = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0;
+    const j = h % (i + 1);
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  return idx;
+}
+
+export function shuffleQuestionOptions(q: Question): Question {
+  const order = seededOrder(q.id, q.options.length);
+  const options = order.map((i) => q.options[i]) as Question['options'];
+  return { ...q, options, correctIndex: order.indexOf(q.correctIndex) };
+}
+
+export const QUESTIONS_DATABASE: Question[] = RAW_QUESTIONS.map(shuffleQuestionOptions);
 
 export const CATEGORY_META: Record<
   string,

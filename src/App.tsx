@@ -18,10 +18,14 @@ import { ZaytounaMap } from './components/ZaytounaMap';
 import { LevelPlayArena } from './components/LevelPlayArena';
 import {
   loadPlayerStats,
-  savePlayerStats,
+  commitStats,
+  onStatsChangedElsewhere,
   loadGameSettings,
   saveGameSettings,
 } from './utils/storage';
+import { HorizonHub, type HorizonNav } from './features/horizon/HorizonHub';
+import { StagePlayer } from './features/horizon/StagePlayer';
+import { MobileNav } from './components/MobileNav';
 import { calculateRank, calculateStageStars } from './game/rules';
 import { sound } from './utils/audio';
 
@@ -90,19 +94,18 @@ export default function App() {
     }
   }, []);
 
-  const updateStats = (updater: (prev: PlayerStats) => PlayerStats) => {
-    setStats((prev) => {
-      const next = updater(prev);
-      const rank = calculateRank(next.xp);
-      const updated = {
-        ...next,
-        level: rank.level,
-        rankTitle: rank.title,
-      };
-      savePlayerStats(updated);
-      return updated;
-    });
+  // تحديث ذري متزامن: يقرأ أحدث نسخة محفوظة ثم يطبق التعديل ويحفظ (يمنع تكرار المكافآت وتعارض التبويبات)
+  const updateStats = (updater: (prev: PlayerStats) => PlayerStats): PlayerStats => {
+    const updated = commitStats(updater);
+    setStats(updated);
+    return updated;
   };
+
+  // مزامنة التقدم عند تغييره من تبويب آخر
+  useEffect(() => onStatsChangedElsewhere(() => setStats(loadPlayerStats())), []);
+
+  const [horizonNav, setHorizonNav] = useState<HorizonNav>({});
+  const [horizonStageId, setHorizonStageId] = useState<string | null>(null);
 
   const handleUpdateSettings = (newSettings: Partial<GameSettings>) => {
     setSettings((prev) => {
@@ -116,7 +119,8 @@ export default function App() {
   const handleSelectMode = (mode: GameMode) => {
     sound.playClick();
     if (mode === 'JOURNEY') {
-      setActiveTab('stages');
+      setActiveTab('horizon');
+      setHorizonStageId(null);
       setCurrentMode(null);
       setActiveZaytounaLevel(null);
     } else if (mode === 'TOWER') {
@@ -139,13 +143,29 @@ export default function App() {
   const handleZaytounaLevelComplete = (
     stars: number,
     score: number,
-    rewards: { coins: number; xp: number; isPerfect: boolean }
+    rewards: { coins: number; xp: number; isPerfect: boolean },
+    correctCount?: number
   ) => {
     if (!activeZaytounaLevel || !activeZaytounaStage) return;
 
     const levelId = activeZaytounaLevel.id;
+    const total = activeZaytounaLevel.questions.length;
+    const correct = typeof correctCount === 'number' ? correctCount : total;
+    // إصلاح: كانت العملات والخبرة تُمنح كاملة في كل إعادة لعب. الآن تُمنح مرة واحدة لكل مستوى،
+    // ومرة إضافية واحدة عند أول إتقان (3 نجوم). الإعادة تحسن النجوم والنتيجة فقط.
+    let granted = { coins: 0, xp: 0 };
 
     updateStats((prev) => {
+      const ledger = { ...(prev.rewardLedger || {}) };
+      const firstKey = `zaytouna:${levelId}:complete`;
+      const perfectKey = `zaytouna:${levelId}:perfect`;
+      if (!ledger[firstKey]) {
+        ledger[firstKey] = new Date().toISOString();
+        granted = { coins: rewards.coins, xp: rewards.xp };
+      } else if (stars === 3 && !ledger[perfectKey]) {
+        granted = { coins: Math.round(rewards.coins / 2), xp: Math.round(rewards.xp / 2) };
+      }
+      if (stars === 3 && !ledger[perfectKey]) ledger[perfectKey] = new Date().toISOString();
       const prevCompleted = prev.completedLevels || {};
       const prevLevelData = prevCompleted[levelId];
       const newStars = Math.max(stars, prevLevelData?.stars || 0);
@@ -156,11 +176,12 @@ export default function App() {
 
       return {
         ...prev,
-        coins: prev.coins + rewards.coins,
-        xp: prev.xp + rewards.xp,
+        coins: prev.coins + granted.coins,
+        xp: prev.xp + granted.xp,
+        rewardLedger: ledger,
         totalGames: prev.totalGames + 1,
-        totalCorrect: prev.totalCorrect + activeZaytounaLevel.questions.length,
-        totalAnswered: prev.totalAnswered + activeZaytounaLevel.questions.length,
+        totalCorrect: prev.totalCorrect + correct,
+        totalAnswered: prev.totalAnswered + total,
         completedLevels: {
           ...prevCompleted,
           [levelId]: { stars: newStars, score: Math.max(score, prevLevelData?.score || 0) },
@@ -172,13 +193,16 @@ export default function App() {
     setGameOverData({
       isOpen: true,
       title: rewards.isPerfect ? 'إتقان أسطوري مثالي! (3 نجوم)' : 'اكتمل المستوى بنجاح!',
-      subtitle: `أحرزت ${stars} نجوم وحصلت على ${rewards.coins} قطعة ذهبية 🪙 و +${rewards.xp} XP خبرة`,
+      subtitle:
+        granted.coins || granted.xp
+          ? `أحرزت ${stars} نجوم وحصلت على ${granted.coins} قطعة ذهبية و +${granted.xp} XP خبرة`
+          : `أحرزت ${stars} نجوم. مكافأة هذا المستوى مُنحت سابقًا (تُمنح مرة واحدة).`,
       score: score,
-      correctAnswers: activeZaytounaLevel.questions.length,
-      totalQuestions: activeZaytounaLevel.questions.length,
-      xpEarned: rewards.xp,
+      correctAnswers: correct,
+      totalQuestions: total,
+      xpEarned: granted.xp,
       starsEarned: stars,
-      coinsEarned: rewards.coins,
+      coinsEarned: granted.coins,
       isPerfect: rewards.isPerfect,
     });
   };
@@ -437,7 +461,11 @@ export default function App() {
         activeTab={activeTab}
         onSelectTab={(tab) => {
           setActiveTab(tab);
-          if (tab === 'home') {
+          if (tab === 'horizon') {
+            setCurrentMode(null);
+            setActiveZaytounaLevel(null);
+            setHorizonStageId(null);
+          } else if (tab === 'home') {
             setCurrentMode(null);
             setActiveStage(null);
           } else if (tab === 'journey') {
@@ -469,6 +497,30 @@ export default function App() {
             onExit={() => setActiveZaytounaLevel(null)}
             onUpdateStats={updateStats}
           />
+        )}
+
+        {/* عوالم الأفق: النظام الجديد القائم على حزم المحتوى */}
+        {activeTab === 'horizon' && !currentMode && !activeZaytounaLevel && (
+          horizonStageId ? (
+            <StagePlayer
+              stageId={horizonStageId}
+              stats={stats}
+              onCommit={updateStats}
+              onExit={() => setHorizonStageId(null)}
+              onOpenStage={(id) => setHorizonStageId(id)}
+            />
+          ) : (
+            <HorizonHub
+              stats={stats}
+              nav={horizonNav}
+              onNav={setHorizonNav}
+              onPlayStage={(id) => {
+                sound.playClick();
+                setHorizonStageId(id);
+              }}
+              onOpenClassic={() => setActiveTab('stages')}
+            />
+          )
         )}
 
         {/* View 1: Zaytouna World & Stages Map (when not currently in level) */}
@@ -556,7 +608,7 @@ export default function App() {
         {activeTab === 'home' && !currentMode && !activeZaytounaLevel && (
           <div className="flex flex-col gap-10">
             <HeroBanner
-              onStartJourney={() => setActiveTab('stages')}
+              onStartJourney={() => setActiveTab('horizon')}
               onStartTower={startTowerMode}
             />
 
@@ -568,8 +620,22 @@ export default function App() {
         )}
       </main>
 
+      <MobileNav
+        activeTab={activeTab}
+        onSelect={(tab) => {
+          sound.playClick();
+          setCurrentMode(null);
+          setActiveZaytounaLevel(null);
+          if (tab === 'horizon') setHorizonStageId(null);
+          if (tab === 'tower') return startTowerMode();
+          if (tab === 'blitz') return startBlitzMode();
+          setActiveTab(tab);
+        }}
+        onOpenProfile={() => setIsProfileOpen(true)}
+      />
+
       {/* Footer */}
-      <footer className="border-t border-slate-800/80 py-6 px-4 text-center text-xs text-slate-500 mt-auto">
+      <footer className="border-t border-slate-800/80 py-6 px-4 pb-24 md:pb-6 text-center text-xs text-slate-500 mt-auto">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <span>أفق المعرفة الكبرى · الصرح الثقافي فائق التطور</span>
           <div className="flex items-center gap-4">

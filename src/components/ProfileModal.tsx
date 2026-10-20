@@ -4,6 +4,7 @@ import { PlayerStats, Badge } from '../types/game';
 import { RANKS, calculateRank } from '../game/rules';
 import { INITIAL_BADGES } from '../utils/storage';
 import { sound } from '../utils/audio';
+import astrolabeImg from '../assets/images/astrolabe_insignia_1792451916541.jpg';
 
 interface ProfileModalProps {
   stats: PlayerStats;
@@ -61,7 +62,7 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
         <div className="flex items-center gap-4 border-b border-slate-800 pb-5">
           <div className="w-16 h-16 rounded-2xl overflow-hidden border border-cyan-500/40 shrink-0 shadow-lg shadow-cyan-500/10">
             <img
-              src="/src/assets/images/astrolabe_insignia_1792451916541.jpg"
+              src={astrolabeImg}
               alt="وسام الأسطرلاب الفلكي"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"

@@ -113,3 +113,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #0EA5E9;
 }
+
+/* مؤثرات خفيفة لعوالم الأفق (تتوقف عند تفضيل تقليل الحركة) */
+@keyframes hz-pop { 0% { transform: scale(0.97); } 60% { transform: scale(1.02); } 100% { transform: scale(1); } }
+@keyframes hz-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+@keyframes hz-enter { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.hz-pop { animation: hz-pop 0.35s ease-out; }
+.hz-shake { animation: hz-shake 0.3s ease-in-out; }
+.hz-enter { animation: hz-enter 0.3s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .hz-pop, .hz-shake, .hz-enter { animation: none; }
+}

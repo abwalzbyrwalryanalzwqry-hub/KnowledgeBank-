@@ -8,7 +8,17 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "content:validate": "tsx scripts/content-cli.ts validate",
+    "content:build": "tsx scripts/content-cli.ts build",
+    "content:stats": "tsx scripts/content-cli.ts stats",
+    "content:import": "tsx scripts/content-cli.ts import",
+    "content:apply": "tsx scripts/content-cli.ts apply",
+    "content:export": "tsx scripts/content-cli.ts export",
+    "content:links": "tsx scripts/content-cli.ts links",
+    "content:ai-drafts": "tsx scripts/gemini-drafts.ts",
+    "prebuild": "tsx scripts/content-cli.ts build",
+    "test": "tsx --test src/**/*.test.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -1,0 +1,686 @@
+{
+  "generatedAt": "content",
+  "stageIndex": [
+    {
+      "id": "s_dawn_general_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_general",
+      "order": 1,
+      "title": "أول الطريق",
+      "type": "general",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_general_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_general",
+      "order": 2,
+      "title": "حصيلة المجلس",
+      "type": "general",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_history_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_history",
+      "order": 1,
+      "title": "أطلال وممالك",
+      "type": "history",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_history_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_history",
+      "order": 2,
+      "title": "صفحات من التاريخ الإسلامي",
+      "type": "history",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_geo_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_geo",
+      "order": 1,
+      "title": "عواصم عربية",
+      "type": "geography",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_geo_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_geo",
+      "order": 2,
+      "title": "قارات وبحار",
+      "type": "geography",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_sci_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_science",
+      "order": 1,
+      "title": "أسرار الجسم والطبيعة",
+      "type": "science",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_sci_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_science",
+      "order": 2,
+      "title": "عناصر وكواكب",
+      "type": "science",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_rel_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_religion",
+      "order": 1,
+      "title": "مع القرآن الكريم",
+      "type": "religion",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_rel_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_religion",
+      "order": 2,
+      "title": "أركان وعبادات",
+      "type": "religion",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_math_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_math",
+      "order": 1,
+      "title": "حساب ذهني",
+      "type": "math",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_math_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_math",
+      "order": 2,
+      "title": "ألغاز عددية",
+      "type": "math",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_ar_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_arabic",
+      "order": 1,
+      "title": "مفردات وجموع",
+      "type": "arabic",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_ar_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_arabic",
+      "order": 2,
+      "title": "نحو وبلاغة",
+      "type": "arabic",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_prov_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_proverbs",
+      "order": 1,
+      "title": "أكمل المثل",
+      "type": "proverbs",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_prov_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_proverbs",
+      "order": 2,
+      "title": "معاني الحكم",
+      "type": "proverbs",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_sport_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_sports",
+      "order": 1,
+      "title": "قوانين اللعب",
+      "type": "sports",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_sport_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_sports",
+      "order": 2,
+      "title": "أحداث رياضية",
+      "type": "sports",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_tech_1",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_tech",
+      "order": 1,
+      "title": "حاسوب وشبكات",
+      "type": "technology",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_dawn_tech_2",
+      "worldId": "w_dawn",
+      "groupId": "g_dawn_tech",
+      "order": 2,
+      "title": "اختراعات غيّرت العالم",
+      "type": "technology",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w1-dawn"
+    },
+    {
+      "id": "s_pz_logic_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_logic",
+      "order": 1,
+      "title": "ألغاز الحكماء",
+      "type": "logic",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_logic_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_logic",
+      "order": 2,
+      "title": "استنتاج دقيق",
+      "type": "logic",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_cw_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_cross",
+      "order": 1,
+      "title": "تقاطع أول",
+      "type": "crossword",
+      "difficulty": "easy",
+      "challengeCount": 1,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_cw_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_cross",
+      "order": 2,
+      "title": "تقاطعان",
+      "type": "crossword",
+      "difficulty": "medium",
+      "challengeCount": 2,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_ws_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_search",
+      "order": 1,
+      "title": "حيوانات مختبئة",
+      "type": "wordsearch",
+      "difficulty": "easy",
+      "challengeCount": 1,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_ws_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_search",
+      "order": 2,
+      "title": "فواكه السوق",
+      "type": "wordsearch",
+      "difficulty": "medium",
+      "challengeCount": 1,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_pw_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pass",
+      "order": 1,
+      "title": "الخزنة الأولى",
+      "type": "password",
+      "difficulty": "easy",
+      "challengeCount": 2,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_pw_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pass",
+      "order": 2,
+      "title": "الخزنة الثانية",
+      "type": "password",
+      "difficulty": "medium",
+      "challengeCount": 2,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_order_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_order",
+      "order": 1,
+      "title": "حروف مبعثرة",
+      "type": "order",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_order_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_order",
+      "order": 2,
+      "title": "كلمات مبعثرة",
+      "type": "order",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_pic_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_picture",
+      "order": 1,
+      "title": "رموز تتكلم",
+      "type": "picture",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_pic_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_picture",
+      "order": 2,
+      "title": "أشكال وألغاز",
+      "type": "picture",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_pat_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pattern",
+      "order": 1,
+      "title": "تسلسلات رقمية",
+      "type": "pattern",
+      "difficulty": "easy",
+      "challengeCount": 4,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_pat_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_pattern",
+      "order": 2,
+      "title": "أنماط الحروف والرموز",
+      "type": "pattern",
+      "difficulty": "medium",
+      "challengeCount": 4,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_obs_1",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_observe",
+      "order": 1,
+      "title": "المختلف",
+      "type": "observation",
+      "difficulty": "easy",
+      "challengeCount": 3,
+      "completionPoints": 20,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_pz_obs_2",
+      "worldId": "w_puzzles",
+      "groupId": "g_pz_observe",
+      "order": 2,
+      "title": "عدّ وتدقيق",
+      "type": "observation",
+      "difficulty": "medium",
+      "challengeCount": 3,
+      "completionPoints": 30,
+      "packId": "w2-puzzles"
+    },
+    {
+      "id": "s_hz_mix_1",
+      "worldId": "w_horizon",
+      "groupId": "g_hz_mixed",
+      "order": 1,
+      "title": "جولة الأفق الأولى",
+      "type": "mixed",
+      "difficulty": "medium",
+      "challengeCount": 5,
+      "completionPoints": 30,
+      "packId": "w3-horizon"
+    },
+    {
+      "id": "s_hz_mix_2",
+      "worldId": "w_horizon",
+      "groupId": "g_hz_mixed",
+      "order": 2,
+      "title": "جولة الأفق الثانية",
+      "type": "mixed",
+      "difficulty": "hard",
+      "challengeCount": 5,
+      "completionPoints": 50,
+      "packId": "w3-horizon"
+    }
+  ],
+  "totals": {
+    "challenges": 138,
+    "publishedChallenges": 137,
+    "stages": 39,
+    "publishedStages": 38,
+    "needsReview": 2
+  },
+  "worlds": [
+    {
+      "id": "w_dawn",
+      "title": "سهول الفجر",
+      "subtitle": "بداية الرحلة: معارف أساسية في عشرة ميادين",
+      "order": 1,
+      "icon": "Sunrise",
+      "color": "#F59E0B",
+      "unlockRatio": 0,
+      "packIds": [
+        "w1-dawn"
+      ],
+      "groups": [
+        {
+          "id": "g_dawn_general",
+          "worldId": "w_dawn",
+          "title": "مجلس الثقافة العامة",
+          "order": 1,
+          "icon": "Lightbulb",
+          "stageType": "general",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_history",
+          "worldId": "w_dawn",
+          "title": "ديوان التاريخ والحضارات",
+          "order": 2,
+          "icon": "Landmark",
+          "stageType": "history",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_geo",
+          "worldId": "w_dawn",
+          "title": "أطلس العواصم والبلدان",
+          "order": 3,
+          "icon": "Earth",
+          "stageType": "geography",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_science",
+          "worldId": "w_dawn",
+          "title": "مختبر الطبيعة",
+          "order": 4,
+          "icon": "FlaskConical",
+          "stageType": "science",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_religion",
+          "worldId": "w_dawn",
+          "title": "رياض المعرفة الدينية",
+          "order": 5,
+          "icon": "BookOpen",
+          "stageType": "religion",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_math",
+          "worldId": "w_dawn",
+          "title": "ميدان الأرقام",
+          "order": 6,
+          "icon": "Calculator",
+          "stageType": "math",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_arabic",
+          "worldId": "w_dawn",
+          "title": "بيت الضاد",
+          "order": 7,
+          "icon": "PenLine",
+          "stageType": "arabic",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_proverbs",
+          "worldId": "w_dawn",
+          "title": "سوق الأمثال والحكم",
+          "order": 8,
+          "icon": "MessageSquareQuote",
+          "stageType": "proverbs",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_sports",
+          "worldId": "w_dawn",
+          "title": "ملعب الأبطال",
+          "order": 9,
+          "icon": "Trophy",
+          "stageType": "sports",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_dawn_tech",
+          "worldId": "w_dawn",
+          "title": "ورشة المخترعين",
+          "order": 10,
+          "icon": "Cpu",
+          "stageType": "technology",
+          "playableStageCount": 2
+        }
+      ],
+      "playableStageCount": 20
+    },
+    {
+      "id": "w_puzzles",
+      "title": "مدينة الألغاز",
+      "subtitle": "كلمات متقاطعة، كلمة السر، أنماط ودقة ملاحظة",
+      "order": 2,
+      "icon": "Puzzle",
+      "color": "#8B5CF6",
+      "unlockRatio": 0.3,
+      "packIds": [
+        "w2-puzzles"
+      ],
+      "groups": [
+        {
+          "id": "g_pz_logic",
+          "worldId": "w_puzzles",
+          "title": "قاعة المنطق والاستنتاج",
+          "order": 1,
+          "icon": "Brain",
+          "stageType": "logic",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_cross",
+          "worldId": "w_puzzles",
+          "title": "شبكة الحروف المتقاطعة",
+          "order": 2,
+          "icon": "Grid3x3",
+          "stageType": "crossword",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_search",
+          "worldId": "w_puzzles",
+          "title": "متاهة الكلمات",
+          "order": 3,
+          "icon": "Search",
+          "stageType": "wordsearch",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_pass",
+          "worldId": "w_puzzles",
+          "title": "خزنة كلمة السر",
+          "order": 4,
+          "icon": "KeyRound",
+          "stageType": "password",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_order",
+          "worldId": "w_puzzles",
+          "title": "ورشة الترتيب",
+          "order": 5,
+          "icon": "ArrowDownUp",
+          "stageType": "order",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_picture",
+          "worldId": "w_puzzles",
+          "title": "معرض الألغاز المصورة",
+          "order": 6,
+          "icon": "Image",
+          "stageType": "picture",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_pattern",
+          "worldId": "w_puzzles",
+          "title": "مرصد الأنماط",
+          "order": 7,
+          "icon": "Shapes",
+          "stageType": "pattern",
+          "playableStageCount": 2
+        },
+        {
+          "id": "g_pz_observe",
+          "worldId": "w_puzzles",
+          "title": "عين الصقر",
+          "order": 8,
+          "icon": "Eye",
+          "stageType": "observation",
+          "playableStageCount": 2
+        }
+      ],
+      "playableStageCount": 16
+    },
+    {
+      "id": "w_horizon",
+      "title": "آفاق متقاطعة",
+      "subtitle": "مراحل مختلطة تجمع كل الأنماط",
+      "order": 3,
+      "icon": "Orbit",
+      "color": "#06B6D4",
+      "unlockRatio": 0.3,
+      "packIds": [
+        "w3-horizon"
+      ],
+      "groups": [
+        {
+          "id": "g_hz_mixed",
+          "worldId": "w_horizon",
+          "title": "مزيج الأفق",
+          "order": 1,
+          "icon": "Layers",
+          "stageType": "mixed",
+          "playableStageCount": 2
+        }
+      ],
+      "playableStageCount": 2
+    }
+  ]
+}
